@@ -31,10 +31,10 @@ const params = {
   slidesPerView: 1,
   slidesPerGroup: 1,
 
-  // autoplay: {
-  //   delay: 5000,
-  //   disableOnInteraction: false
-  // }
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false
+  }
 }
 
 function SwiperBanner ({content}) {

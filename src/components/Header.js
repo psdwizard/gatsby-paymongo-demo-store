@@ -20,7 +20,7 @@ function Header() {
             </li>
           </ul>
 
-          <div>
+          <div className="brand-icon-holder">
             <Link to="/">
               <img class="brand-icon" src={require('../assets/images/paymongo-logo.png')} alt="paymongo-logo"/>
             </Link>
@@ -28,12 +28,12 @@ function Header() {
 
           <ul className="icon-listing">
             <li className="icon-item">
-              <Link className="icon" to="">
+              <Link className="icon-link" to="">
                <FontAwesomeIcon icon={faSearch} className="icon icon-search" />
               </Link>
             </li>
             <li className="icon-item">
-              <Link className="icon" to="">
+              <Link className="icon-link" to="">
                <FontAwesomeIcon icon={faShoppingBag} className="icon icon-shopping-bag" />
               </Link>
             </li>
