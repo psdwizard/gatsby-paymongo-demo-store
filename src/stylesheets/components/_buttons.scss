@@ -1,0 +1,29 @@
+.btn {
+  padding: 10px 5px;
+  width: 100%;
+  max-width: 125px;
+ 
+  text-align: center;
+
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 3px solid;
+  border-left: 1px solid;
+  transform: perspective(1px) translateZ(0);
+  transition-property: color;
+  transition-duration: .3s;
+}
+
+.btn-white {
+  color: $black;
+
+  background: $white;
+  border-color: $black;
+
+  &:hover {
+    color: $white;
+
+    background: $black;
+    border-color: $white;
+  }
+}

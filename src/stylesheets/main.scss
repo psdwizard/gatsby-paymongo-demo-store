@@ -1,9 +1,27 @@
-body {
-  font-size: 42px;
+@charset 'UTF-8';
 
-  background: lightblue;
-}
+// Configuration and helpers
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins';
 
-.sass-ready {
-  color: blue;
-}
+// Base stuff
+@import
+  'base/base',
+  'base/fonts',
+  'base/typography';
+
+// Layout-related sections
+@import
+  'layout/header',
+  'layout/footer',
+  'layout/section-swiper-banner';
+
+// Components
+@import
+  'components/buttons';
+
+// Page-specific styles
+@import
+  'pages/home';

@@ -1,0 +1,49 @@
+.section-swiper-banner {
+  display: flex;
+  height: auto;
+  min-height: 700px;
+
+  .banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $white;
+
+    background: $green;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .subtitle {
+    margin-top: 20px;
+  }
+
+  .btn-white {
+    margin-top: 20px;
+  }
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 524px;
+  }
+}
