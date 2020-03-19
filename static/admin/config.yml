@@ -15,3 +15,16 @@ collections:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }
       - { name: body, label: Body, widget: markdown }
+  - name: product
+    label: Product
+    folder: src/content/product
+    create: true
+    editor:
+    preview : false
+    fields:
+      - { name: productName, label: Name, widget: "string" }
+      - { name: description, label: Description, widget: "string" }
+      - { name: price, label: Price, widget: "string" }
+      - { name: image, label: Image, widget: "image" }
+      - { name: altText, label: Alt Text, widget: "string" }
+      - { name: ratings, label: Ratings, widget: "string" }
