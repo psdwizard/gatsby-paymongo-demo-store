@@ -1,0 +1,64 @@
+.section-category-listing {
+  .category-listing {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .category-item {
+    padding: 46px 53px;
+    margin-bottom: 27px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    background: #9c9c9c;
+
+    &:nth-child(even) {
+      background: #7fcea6;
+    }
+
+    &:nth-child(odd) {
+      background: #83f5b6;
+    }
+  }
+
+  .category-description {
+    margin-top: 11px;
+  }
+
+  .category-text-wrapper {
+    width: 52%;
+    margin-right: 9%;
+  }
+
+  .category-title {
+    font-size: 26px;
+  }
+
+  .category-button {
+    margin-top: 18px;
+  }
+
+  .category-image-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    width: 39%;
+  }
+
+  .category-image {
+    width: 100%;
+  }
+}
+
+@include respond-to(xl) {
+  .section-category-listing {
+    .category-item {
+      width: 31.33%;
+
+      &:not(:nth-child(3n)){
+        margin-right: 3%;
+      }
+    }
+  }
+}
