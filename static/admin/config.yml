@@ -17,11 +17,10 @@ collections:
       - { name: body, label: Body, widget: markdown }
   - name: product
     label: Product
-    folder: src/content/product
+    folder: product
     create: true
-    editor:
-    preview : false
     fields:
+      - { name: path, label: Path }
       - { name: productName, label: Name, widget: "string" }
       - { name: description, label: Description, widget: "string" }
       - { name: price, label: Price, widget: "string" }

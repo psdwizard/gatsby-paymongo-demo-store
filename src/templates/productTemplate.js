@@ -1,25 +1,25 @@
 import React from "react"
-import ImageObserver from '@researchgate/react-intersection-observer';
+import { Link, graphql } from "gatsby"
 
-function prouctTemplate() {
-  const { markdownRemark } = this.props.data
-  const post = markdownRemark
+export default function productTemplate ({
+  data, // this prop will be injected by the GraphQL query below.
+}) {
+  const { markdownRemark } = data // data.markdownRemark holds our post data
+  const { frontmatter } = markdownRemark
 
   return (
     <div className="product-template">
-      {post.frontmatter.productName}
-      {post.frontmatter.description}
-      {post.frontmatter.price}
-      <ImageObserver src={post.frontmatter.image} altString={post.frontmatter.altText} />
+      {frontmatter.productName}
+      {frontmatter.description}
+      {frontmatter.price}
+      {/* <ImageObserver src={post.frontmatter.image} altString={post.frontmatter.altText} /> */}
     </div>
   )
 }
 
-export default prouctTemplate
-
 export const pageQuery = graphql`
-  query($pathSlug: String!) {
-    markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
       html,
       frontmatter {
         productName
@@ -29,11 +29,6 @@ export const pageQuery = graphql`
         ratings
         altText
         ratings
-      },
-    },
-    site {
-      siteMetadata {
-        siteUrl
       }
     }
   }
