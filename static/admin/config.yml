@@ -6,22 +6,14 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
-    fields:
-      - { name: path, label: Path }
-      - { name: title, label: Title }
-      - { name: date, label: Date, widget: date }
-      - { name: body, label: Body, widget: markdown }
   - name: product
     label: Product
     folder: product
     create: true
     fields:
       - { name: path, label: Path }
-      - { name: productName, label: Name, widget: "string" }
+      - { name: title, label: Title }
+      - { name: date, label: Date, widget: date }
       - { name: description, label: Description, widget: "string" }
       - { name: price, label: Price, widget: "string" }
       - { name: image, label: Image, widget: "image" }

@@ -10,7 +10,7 @@ function Header() {
         <nav>
           <ul className="link-listing">
             <li className="link-item">
-              <Link to="/" className="link">Product</Link>
+              <Link to="/product-catalog" className="link">Product</Link>
             </li>
             <li className="link-item">
               <Link to="/" className="link">About</Link>
@@ -22,7 +22,7 @@ function Header() {
 
           <div className="brand-icon-holder">
             <Link to="/">
-              <img class="brand-icon" src={require('../assets/images/paymongo-logo.png')} alt="paymongo-logo"/>
+              <img className="brand-icon" src={require('../assets/images/fs-logo.png')} alt="fullstackhq-logo"/>
             </Link>
           </div>
 
