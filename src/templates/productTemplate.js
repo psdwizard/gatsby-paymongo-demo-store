@@ -7,7 +7,7 @@ function prouctTemplate() {
 
   return (
     <div className="product-template">
-      {post.frontmatter.name}
+      {post.frontmatter.productName}
       {post.frontmatter.description}
       {post.frontmatter.price}
       <ImageObserver src={post.frontmatter.image} altString={post.frontmatter.altText} />
@@ -22,7 +22,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
       html,
       frontmatter {
-        name
+        productName
         description
         price
         image

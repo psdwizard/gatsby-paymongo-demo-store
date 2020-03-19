@@ -29,9 +29,13 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             html
             frontmatter {
-              path
-              Title
-              meta_title
+              productName
+              description
+              price
+              image
+              ratings
+              altText
+              ratings
             }
           }
         }
