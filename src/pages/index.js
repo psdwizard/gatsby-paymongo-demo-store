@@ -1,8 +1,8 @@
 import React from "react"
 import Header from "../components/Header"
-import { Link } from "gatsby"
-import Swiper from 'react-id-swiper'
-import 'swiper/css/swiper.css'
+import SwiperBanner from "../components/SwiperBanner"
+// import { Link } from "gatsby"
+
 
 const swiperData = [
   {
@@ -23,62 +23,11 @@ const swiperData = [
   },
 ]
 
-const params = {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  slidesPerView: 1,
-  slidesPerGroup: 1,
-
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false
-  }
-}
-
-function SwiperBanner ({content}) {
-  return (
-      <div className="section-swiper-banner">
-        <Swiper {...params}>
-          {content.map((item, i) => {
-            return (
-              <div key={i} className="slider-content">
-                <div className="container">
-                  <div className="banner-content"> 
-                    <div className="text-wrapper">
-                      <h1 className="title">
-                        {item.title}
-                      </h1>
-                      <p className="description">
-                        {item.description}
-                      </p>
-                      <Link
-                        to={item.buttonLink}
-                        className="btn btn-white"
-                      >
-                        {item.buttonText}
-                      </Link>
-                    </div>
-
-                    <div className="image-wrapper">
-                      <img src={item.image} className="image" alt={item.imageName}/>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            )
-          })}
-        </Swiper>
-      </div>
-  )
-}
-
 
 export default () =>
   <div>
     <Header />
     <main className="home">
-        <SwiperBanner content={swiperData} />
+      <SwiperBanner content={swiperData} />
     </main>
   </div>
