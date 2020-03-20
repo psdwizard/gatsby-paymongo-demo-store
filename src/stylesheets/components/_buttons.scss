@@ -3,16 +3,15 @@
   padding: 10px 5px;
   width: 100%;
   max-width: 125px;
- 
+
   text-align: center;
 
-  border-top: 1px solid;
-  border-right: 1px solid;
-  border-bottom: 3px solid;
-  border-left: 1px solid;
-  transform: perspective(1px) translateZ(0);
-  transition-property: color;
-  transition-duration: .3s;
+  border: 1px solid $black;
+  // transform: perspective(1px) translateZ(0);
+  // transition-property: color;
+  // transition-duration: .3s;
+
+  transition: all .5s ease;
 }
 
 .custom-btn-white {
@@ -35,8 +34,9 @@
   background: $black;
   border-color: $white;
 
-  &:hover {
+  &:hover { 
     color: $black;
+    text-decoration: initial;
 
     background: $white;
     border-color: $black;

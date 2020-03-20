@@ -6,5 +6,9 @@ description: lorem 2
 price: '25555'
 image: /assets/bootstrap-illustration3.png
 altText: product image
+weight: 'Lorem'
+dimensions: 'ipsum'
+materials: 'dolor'
+OtherInfo: 'sit amet adipiscing'
 ratings: '5'
 ---

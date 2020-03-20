@@ -1,0 +1,136 @@
+
+.product-details {
+  .product-wrapper {
+    display: flex;
+    padding: 40px 0 60px;
+  }
+
+  .image-holder,
+  .details-holder {
+    width: 50%;
+  }
+
+  .image-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .name {
+    font-size: 48px;
+  }
+
+  .price {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .desc-holder {
+    margin: 40px 0 30px;
+
+    border-bottom: 1px solid $mid-grey;
+
+    .label {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+  }
+
+  .add-cart-holder {
+    display: flex;
+    margin-bottom: 30px;
+  }
+
+  .quantity-select {
+    padding: 0 12px;
+    margin-right: 10px;
+    width: 76px;
+  }
+
+  .social-holder {
+    display: flex;
+  }
+
+  .icon-link {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 5px;
+    width: 40px;
+    height: 35px;
+
+    background-color: $black;
+    border-radius: 5px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  .icon {
+    color: $white;
+  }
+
+  .nav-tabs {
+    display: flex;
+    padding: 0;
+
+    list-style: none;
+    
+    border: none;
+  }
+
+  .nav-link {
+    color: $white;
+
+    background-color: $mid-grey;
+    border-radius: 50px;
+
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      background-color: $black;
+    }
+
+    &.react-tabs__tab--selected {
+      background-color: $black;
+    }
+  }
+
+  .tab-content {
+    background-color: $light-grey;
+  }
+
+  .info-list {
+    padding: 30px;
+
+    list-style: none;
+  }
+
+  .list-item {
+    outline: none;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    span {
+      display: inline-block;
+      margin-right: 30px;
+      min-width: 100px;
+  
+      font-weight: 700;
+    }
+  }
+}
