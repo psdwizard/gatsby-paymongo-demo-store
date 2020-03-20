@@ -20,7 +20,7 @@ function ProductCatalog({data}) {
                   <div className="product-item">
                     <h2 className="title">{title}</h2>
                     <p className="description">{description}</p>
-                    <Link to={path} className="btn btn-black">View Details</Link>
+                    <Link to={path} className="custom-btn custom-btn-black">View Details</Link>
                   </div>
                 )
               })
