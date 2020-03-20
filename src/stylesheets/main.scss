@@ -17,7 +17,8 @@
   'layout/header',
   'layout/footer',
   'layout/section-swiper-banner',
-  'layout/section-category-listing';
+  'layout/section-category-listing',
+  'layout/banner';
 
 // Components
 @import
@@ -26,4 +27,5 @@
 // Page-specific styles
 @import
   'pages/home',
-  'pages/product-details';
+  'pages/product-details',
+  'pages/product-catalog';
