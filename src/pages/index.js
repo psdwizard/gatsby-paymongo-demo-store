@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import SwiperBanner from "../components/SwiperBanner"
 import CategoryListing from "../components/CategoryListing"
 // import { Link } from "gatsby"
@@ -56,4 +57,5 @@ export default () =>
       <SwiperBanner content={swiperData} />
       <CategoryListing category={categoryData} />
     </main>
+    <Footer />
   </div>
