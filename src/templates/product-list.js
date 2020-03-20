@@ -3,13 +3,13 @@ import { Link, graphql } from "gatsby"
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
-import { TabContent, TabPane, Nav, NavItem, NavLink, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
 
 
-function ProductCatalog({ data }) {
+function productList({ data }) {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
@@ -66,35 +66,6 @@ function ProductCatalog({ data }) {
                       })
                     }
                   </ul>
-                  <Pagination aria-label="Page navigation example">
-                      <PaginationItem>
-                          <PaginationLink first href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink previous href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            1
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            2
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            3
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink next href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink last href="#" />
-                        </PaginationItem>
-                      </Pagination>
                 </div>
               </TabPane>
               <TabPane tabId="2">
@@ -122,36 +93,6 @@ function ProductCatalog({ data }) {
                       })
                     }
                   </ul>
-                  <Pagination aria-label="Page navigation example">
-                      <PaginationItem>
-                          <PaginationLink first href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink previous href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            1
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            2
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            3
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink next href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink last href="#" />
-                        </PaginationItem>
-                      </Pagination>
-
                 </div>
               </TabPane>
             </TabContent>
@@ -163,13 +104,14 @@ function ProductCatalog({ data }) {
   )
 }
 
-export default ProductCatalog
+export default productList
 
 export const ProductQuery = graphql`
-  query AllProduct {
+  query productsQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark (
       sort: {fields: [frontmatter___date], order: DESC}
-      limit: 4
+      limit: $limit
+      skip: $skip 
     ){
       edges {
         node {

@@ -3,6 +3,10 @@
     margin: 60px 0;
   }
 
+  .pagination {
+    justify-content: center;
+  }
+
   .nav-tabs {
     justify-content: flex-end;
 
@@ -41,6 +45,8 @@
     }
 
     .image-holder {
+      position: relative;
+
       background: $light-gray;
     }
 
@@ -55,16 +61,36 @@
     .product-item {
       margin-bottom: 20px;
       width: 30%;
+
+      &:hover {
+        .custom-btn {
+          opacity: 1;
+          
+          transition: .2s ease-in;
+          pointer-events: initial;
+        }
+
+        .image-thumbnail {
+          transform: scale(.9);
+          transition: all .5s ease-in-out;
+        }
+      }
     }
 
     .image-thumbnail {
       width: 100%;
+
+      transition: all .5s ease-in-out;
     }
 
     .custom-btn {
+      position: absolute;
+      bottom: 0;
+
       max-width: 100%;
-      height: 0;
       opacity: 0;
+      transition: .2s ease-in;
+      pointer-events: none;
     }
 
     .text-holder {
@@ -102,7 +128,7 @@
     }
 
     .image-holder {
-      width: 30%;
+      width: 27%;
     }
 
     .text-holder {
@@ -116,7 +142,7 @@
   }
 }
 
-@include respond-to(xl) {
+@include respond-to(md-up) {
   .product-catalog {
     .grid {
       .product-item {
@@ -125,6 +151,66 @@
         &:not(:nth-child(3n)){
           margin-right: 3%;
         }
+      }
+    }
+  }
+}
+
+@include respond-to(md) {
+  .product-catalog {
+    .list {
+      .image-holder {
+        margin-right: 9%;
+      }
+
+      .text-holder {
+        width: 52%;
+      }
+    }
+  }
+}
+
+
+@include respond-to(sm-down) {
+  .product-catalog {
+    .grid {
+      .product-item {
+        width: 48.5%;
+
+        &:not(:nth-child(2n)){
+          margin-right: 3%;
+        }
+      }
+    }
+
+    .list {
+      .product-item {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .image-holder {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .text-holder {
+        width: 100%;
+      }
+
+      .custom-btn {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@include respond-to(xs) {
+  .product-catalog {
+    .grid {
+      .product-item {
+        width: 100%;
       }
     }
   }

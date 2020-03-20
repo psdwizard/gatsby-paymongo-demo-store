@@ -51,13 +51,54 @@
   }
 }
 
-@include respond-to(xl) {
+@include respond-to(lg-up) {
   .section-category-listing {
     .category-item {
       width: 31.33%;
 
       &:not(:nth-child(3n)){
         margin-right: 3%;
+      }
+    }
+  }
+}
+
+@include respond-to(lg-down) {
+  .section-category-listing {
+    .category-item {
+      flex-direction: column-reverse;
+    }
+
+    .category-text-wrapper {
+      width: 100%;
+    }
+    
+    .category-image-wrapper {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@include respond-to(md-down) {
+  .section-category-listing {
+    .category-item {
+      width: 48.5%;
+
+      &:not(:nth-child(2n)){
+        margin-right: 3%;
+      }
+    }
+  }
+}
+
+@include respond-to(xs) {
+  .section-category-listing {
+    .category-item {
+      width: 100%;
+
+      &:not(:nth-child(2n)){
+        margin-right: 0;
       }
     }
   }
