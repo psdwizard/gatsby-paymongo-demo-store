@@ -1,4 +1,4 @@
-.btn {
+.custom-btn {
   display: block;
   padding: 10px 5px;
   width: 100%;
@@ -15,7 +15,7 @@
   transition-duration: .3s;
 }
 
-.btn-white {
+.custom-btn-white {
   color: $black;
 
   background: $white;
@@ -29,7 +29,7 @@
   }
 }
 
-.btn-black {
+.custom-btn-black {
   color: $white;
 
   background: $black;
@@ -43,7 +43,7 @@
   }
 }
 
-.btn-no-border {
+.custom-btn-no-border {
   border: none;
 
   &:hover {

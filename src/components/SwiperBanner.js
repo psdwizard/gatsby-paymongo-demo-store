@@ -35,7 +35,7 @@ function SwiperBanner ({content}) {
                       </p>
                       <Link
                         to={item.buttonLink}
-                        className="btn btn-white"
+                        className="custom-btn custom-btn-white"
                       >
                         {item.buttonText}
                       </Link>
