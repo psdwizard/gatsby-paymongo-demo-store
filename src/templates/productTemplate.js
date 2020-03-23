@@ -19,7 +19,7 @@ export default function Template({
         <div className="container">
           <div className="product-wrapper">
             <div className="image-holder">
-              {/* <img className="product-image" src={require(frontmatter.image)} alt={frontmatter.altText}/> */}
+              <img className="product-image" src={frontmatter.image} alt={frontmatter.altText}/>
             </div>
             <div className="details-holder">
               <h1 className="name">{frontmatter.title}</h1>
