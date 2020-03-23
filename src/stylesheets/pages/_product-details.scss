@@ -141,6 +141,46 @@
     }
   }
 
+  .review-summary {
+    display: flex;
+  }
+
+  .overall-star {
+    margin-right: 70px;
+
+    p:first-child {
+      margin-bottom: 0;
+
+      font-size: 35px;
+      font-weight: 700;
+    }
+
+    .stars .icon {
+      font-size: 20px;
+    }
+
+    .ratings {
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+
+  .progress {
+    margin-bottom: 15px;
+    height: auto;
+    
+    .progress-bar-complete {
+      width: 200px;
+      height: 20px;
+      background: $yellow;
+      border-radius: 5px;
+    }
+  }
+
+  .stars .icon {
+    color: $yellow;
+  }
+
   .title-content {
     padding: 10px 0;
     margin-bottom: 20px;
@@ -149,10 +189,6 @@
 
     border-top: 1px solid $gainsboro;
     border-bottom: 1px solid $gainsboro;
-  }
-
-  .stars .icon {
-    color: $yellow;
   }
 
   .review-holder {

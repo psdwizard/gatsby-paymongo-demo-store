@@ -69,7 +69,56 @@ export default function Template({
                   <p className="ratings">2 Ratings</p>
                 </div>
                 <div className="progress-star">
-
+                  <div className="progress">
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <div class="progress-bar-complete"></div>
+                  </div>
+                  <div className="progress">
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <div class="progress-bar-complete"></div>
+                  </div>
+                  <div className="progress">
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <div class="progress-bar-complete"></div>
+                  </div>
+                  <div className="progress">
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <div class="progress-bar-complete"></div>
+                  </div>
+                  <div className="progress">
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <div class="progress-bar-complete"></div>
+                  </div>
                 </div>
               </div>
               <h2 className="title-content">Product Reviews</h2>
