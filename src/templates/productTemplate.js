@@ -2,7 +2,8 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTwitter, faFacebookF, faLinkedinIn } from "@fortawesome/free-brands-svg-icons"
+import { faTwitter, faFacebookF, faLinkedinIn} from "@fortawesome/free-brands-svg-icons"
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import Header from "../components/Header"
 
@@ -18,7 +19,7 @@ export default function Template({
         <div className="container">
           <div className="product-wrapper">
             <div className="image-holder">
-              <img className="product-image" src={frontmatter.image} alt="fullstackhq-logo"/>
+              {/* <img className="product-image" src={require(frontmatter.image)} alt={frontmatter.altText}/> */}
             </div>
             <div className="details-holder">
               <h1 className="name">{frontmatter.title}</h1>
@@ -33,7 +34,7 @@ export default function Template({
                   <option>2</option>
                   <option>3</option>
                 </select>
-                <Link to='/' className="custom-btn custom-btn-black">Add to Cart</Link>
+                <button to='/' className="btn-swipe-black hover-swipe-right">Add to Cart</button>
               </div>
               <div className="social-holder">
                 <Link to="/" className="icon-link twitter">
@@ -55,7 +56,74 @@ export default function Template({
               <Tab className="nav-link">Additional Information</Tab>
             </TabList>
             <TabPanel className="tab-content">
-              <h2>Any content 1</h2>
+              <div className="review-summary">
+                <div className="overall-star">
+                  <p>5/5</p>
+                  <span className="stars">
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                    <FontAwesomeIcon icon={faStar} className="icon" />
+                  </span>
+                  <p className="ratings">2 Ratings</p>
+                </div>
+                <div className="progress-star">
+
+                </div>
+              </div>
+              <h2 className="title-content">Product Reviews</h2>
+              <div className="review-wrapper">
+                <div className="review-holder">
+                  <div className="avatar">
+                    <div className="image-holder">
+                      <span>YP</span>
+                    </div>
+                  </div>
+                  <div className="review-data">
+                    <p className="customer-name">Yes Papa</p>
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <p className="date-posted">12/25/2020</p>
+                    <div className="review-title">This product is awesome!</div>
+                    <div className="review-products">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id rhoncus ligula. Sed vehicula, leo non egestas efficitur, odio dolor porttitor lorem, ut eleifend justo mauris sit amet nibh. Phasellus at feugiat ex, ut aliquet nunc. Phasellus consequat orci at molestie congue. In hac habitasse platea dictumst. Nunc lacus ligula, accumsan vel eleifend vitae, ullamcorper in est. Pellentesque quis arcu vehicula, tempus nisi ut, accumsan diam. Curabitur porttitor aliquam vulputate. Duis auctor tempor ex, quis interdum risus finibus eu. Fusce ut est vel est ultrices ullamcorper. Mauris sed quam nisl.
+                    </div>
+                  </div>
+                </div>
+                <div className="review-holder">
+                  <div className="avatar">
+                    <div className="image-holder">
+                      <span>CC</span>
+                    </div>
+                  </div>
+                  <div className="review-data">
+                    <p className="customer-name">Charlie Charlie</p>
+                    <span className="stars">
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                      <FontAwesomeIcon icon={faStar} className="icon" />
+                    </span>
+                    <p className="date-posted">12/25/2020</p>
+                    <div className="review-title">This product is awesome!</div>
+                    <div className="review-products">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id rhoncus ligula. Sed vehicula, leo non egestas efficitur, odio dolor porttitor lorem, ut eleifend justo mauris sit amet nibh. Phasellus at feugiat ex, ut aliquet nunc. Phasellus consequat orci at molestie congue. In hac habitasse platea dictumst. Nunc lacus ligula, accumsan vel eleifend vitae, ullamcorper in est. Pellentesque quis arcu vehicula, tempus nisi ut, accumsan diam. Curabitur porttitor aliquam vulputate. Duis auctor tempor ex, quis interdum risus finibus eu. Fusce ut est vel est ultrices ullamcorper. Mauris sed quam nisl.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2 className="title-content">Write a Review</h2>
+              <div className="write-wrapper">
+                <textarea className="message-box"></textarea>
+                <button className="btn-swipe-yellow hover-swipe-right" type="submit">Submit</button>
+              </div>
             </TabPanel>
             <TabPanel className="tab-content">
               <ul className="info-list">

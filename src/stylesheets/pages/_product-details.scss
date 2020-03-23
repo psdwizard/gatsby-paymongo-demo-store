@@ -49,6 +49,8 @@
     padding: 0 12px;
     margin-right: 10px;
     width: 76px;
+
+    border: 1px solid $black;
   }
 
   .social-holder {
@@ -110,10 +112,15 @@
 
   .tab-content {
     background-color: $light-grey;
+
+    &.react-tabs__tab-panel--selected {
+      padding: 20px 25px;
+    }
   }
 
   .info-list {
-    padding: 30px;
+    padding: 0;
+    margin: 0;
 
     list-style: none;
   }
@@ -132,5 +139,66 @@
   
       font-weight: 700;
     }
+  }
+
+  .title-content {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    
+    font-size: 20px;
+
+    border-top: 1px solid $gainsboro;
+    border-bottom: 1px solid $gainsboro;
+  }
+
+  .stars .icon {
+    color: $yellow;
+  }
+
+  .review-holder {
+    display: flex;
+    margin-bottom: 30px;
+
+    .avatar {
+      margin-right: 15px;
+    }
+
+    .image-holder {
+      width: 60px;
+      height: 60px;
+
+      background-color: $yellow;
+      border-radius: 50%;
+
+      span {
+        font-size: 24px;
+      }
+    }
+
+    .customer-name {
+      display: inline-block;
+      margin: 0 10px 0 0;
+
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .date-posted {
+      margin-bottom: 10px;
+    }
+
+    .review-title {
+      font-weight: 700;
+    }
+  }
+
+  .message-box {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 100px;
+
+    background: $light-grey;
+
+    resize: none;
   }
 }
