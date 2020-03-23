@@ -12,7 +12,7 @@ button {
 
 a {
   color: $black;
-  text-decoration: none;
+  text-decoration: none!important;
 
   &:hover {
     color: $blue;
@@ -63,7 +63,7 @@ textarea {
   display: block;
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
 }
 
 .container-fluid {
@@ -74,21 +74,33 @@ textarea {
 }
 
 main {
-  padding-top: 115px;
+  padding-top: 111px;
 }
 
 @include respond-to(lg) {
-  max-width: 992px;
+  .container {
+    max-width: 940px;
+  }
 }
 
 @include respond-to(md) {
-  max-width: 768px;
+  .container {
+    max-width: 700px;
+  }
 }
 
 @include respond-to(sm) {
-  max-width: 576px;
+  .container {
+    max-width: 576px;
+  }
 }
 
 @include respond-to(xs) {
-  max-width: 100%;
+  .container {
+    max-width: 100%;
+  }
+
+  main {
+    padding-top: 93px;
+  }
 }

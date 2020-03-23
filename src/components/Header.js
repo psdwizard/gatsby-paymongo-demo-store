@@ -18,6 +18,9 @@ function Header() {
             <li className="link-item">
               <Link to="/" className="link">Collection</Link>
             </li>
+            <li className="link-item show-mb">
+              <Link to="/product-catalog" className="link">Shop</Link>
+            </li>
           </ul>
 
           <div className="brand-icon-holder">

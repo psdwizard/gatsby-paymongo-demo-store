@@ -3,21 +3,19 @@ import { Link, graphql } from "gatsby"
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
-import { TabContent, TabPane, Nav, NavItem, NavLink, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
-import PaginationLinks from "../components/PaginationLinks"
 
-function ProductCatalog({ data }) {
+
+function productList({ data }) {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   }
 
-  const postsPerPage = 2;
-  let numberOfPages 
   return (
     <div>
       <Header />
@@ -51,8 +49,6 @@ function ProductCatalog({ data }) {
                       data.allMarkdownRemark.edges.map(product => {
                         const { title, description, price, image, altText, path, ratings } = product.node.frontmatter;
 
-                        numberOfPages = Math.ceil(data.allMarkdownRemark.totalCount / postsPerPage)
-
                         return (
                           <div className="product-item" key={title}>
                             <div className="image-holder">
@@ -69,9 +65,7 @@ function ProductCatalog({ data }) {
                         )
                       })
                     }
-
                   </ul>
-                  <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
                 </div>
               </TabPane>
               <TabPane tabId="2">
@@ -99,7 +93,6 @@ function ProductCatalog({ data }) {
                       })
                     }
                   </ul>
-                  <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
                 </div>
               </TabPane>
             </TabContent>
@@ -111,15 +104,15 @@ function ProductCatalog({ data }) {
   )
 }
 
-export default ProductCatalog
+export default productList
 
 export const ProductQuery = graphql`
-  query AllProduct {
+  query productsQuery($skip: Int!, $limit: Int!) {
     allMarkdownRemark (
       sort: {fields: [frontmatter___date], order: DESC}
-      limit: 2
+      limit: $limit
+      skip: $skip 
     ){
-      totalCount
       edges {
         node {
           frontmatter {
@@ -130,10 +123,6 @@ export const ProductQuery = graphql`
             price
             image
             altText
-            weight
-            dimensions
-            materials
-            OtherInfo
             ratings
           }
         }
