@@ -5,10 +5,10 @@ title: "My Second product post"
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 price: '250.00'
 image: /static/bootstrap-illustration-3-684597ab3c466b167570a1fa9e74edfc.png
-altText: product image
-weight: 'Lorem'
-dimensions: 'ipsum'
-materials: 'dolor'
-OtherInfo: 'sit amet adipiscing'
+altText: 'product image'
+weight: '400 g'
+dimensions: '10 x 10 x 15 cm'
+materials: '60% cotton, 40% polyester'
+OtherInfo: 'American heirloom jean shorts pug seitan letterpress'
 ratings: '5'
 ---
