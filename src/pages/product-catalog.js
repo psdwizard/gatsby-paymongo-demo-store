@@ -7,7 +7,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Pagination, PaginationItem,
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
-
+import PaginationLinks from "../components/PaginationLinks"
 
 function ProductCatalog({ data }) {
   const [activeTab, setActiveTab] = useState('1');
@@ -16,6 +16,8 @@ function ProductCatalog({ data }) {
     if (activeTab !== tab) setActiveTab(tab);
   }
 
+  const postsPerPage = 2;
+  let numberOfPages 
   return (
     <div>
       <Header />
@@ -49,6 +51,8 @@ function ProductCatalog({ data }) {
                       data.allMarkdownRemark.edges.map(product => {
                         const { title, description, price, image, altText, path, ratings } = product.node.frontmatter;
 
+                        numberOfPages = Math.ceil(data.allMarkdownRemark.totalCount / postsPerPage)
+
                         return (
                           <div className="product-item" key={title}>
                             <div className="image-holder">
@@ -65,36 +69,9 @@ function ProductCatalog({ data }) {
                         )
                       })
                     }
+
                   </ul>
-                  <Pagination aria-label="Page navigation example">
-                      <PaginationItem>
-                          <PaginationLink first href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink previous href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            1
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            2
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            3
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink next href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink last href="#" />
-                        </PaginationItem>
-                      </Pagination>
+                  <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
                 </div>
               </TabPane>
               <TabPane tabId="2">
@@ -122,36 +99,7 @@ function ProductCatalog({ data }) {
                       })
                     }
                   </ul>
-                  <Pagination aria-label="Page navigation example">
-                      <PaginationItem>
-                          <PaginationLink first href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink previous href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            1
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            2
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink href="#">
-                            3
-                          </PaginationLink>
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink next href="#" />
-                        </PaginationItem>
-                        <PaginationItem>
-                          <PaginationLink last href="#" />
-                        </PaginationItem>
-                      </Pagination>
-
+                  <PaginationLinks currentPage={1} numberOfPages={numberOfPages} />
                 </div>
               </TabPane>
             </TabContent>
@@ -169,8 +117,9 @@ export const ProductQuery = graphql`
   query AllProduct {
     allMarkdownRemark (
       sort: {fields: [frontmatter___date], order: DESC}
-      limit: 4
+      limit: 2
     ){
+      totalCount
       edges {
         node {
           frontmatter {
