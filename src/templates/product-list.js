@@ -7,9 +7,12 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, Ca
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
+import PaginationLinks from "../components/PaginationLinks"
 
 
-function productList({ data }) {
+function productList({ data, props }) {
+  const { currentPage, numberOfPages } = props.pageContext
+
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
@@ -66,6 +69,7 @@ function productList({ data }) {
                       })
                     }
                   </ul>
+                  <PaginationLinks currentPage={currentPage} numberOfPages={numberOfPages} />
                 </div>
               </TabPane>
               <TabPane tabId="2">
@@ -93,6 +97,7 @@ function productList({ data }) {
                       })
                     }
                   </ul>
+                  <PaginationLinks currentPage={currentPage} numberOfPages={numberOfPages} />
                 </div>
               </TabPane>
             </TabContent>
