@@ -127,3 +127,9 @@
     color: $white;
   }
 }
+
+@include respond-to(lg) {
+  .hover-swipe-right {
+    padding: 8px 20px;
+  }
+}
