@@ -5,6 +5,28 @@
 
   .pagination {
     justify-content: center;
+    
+    li {
+      margin: 0 10px;
+    }
+
+    .display-none {
+      display: none;
+    }
+
+    .active {
+      a {
+        color: $blue;
+      }
+    }
+
+    a {
+      font-size: 20px;
+    }
+
+    .disabled {
+      opacity: 0.5;
+    }
   }
 
   .nav-tabs {
@@ -42,6 +64,7 @@
     .product-listing {
       display: flex;
       flex-wrap: wrap;
+      list-style: none;
     }
 
     .image-holder {
@@ -155,6 +178,21 @@
     }
   }
 }
+
+@include respond-to(lg-down) {
+  .product-catalog {
+    .list {
+      .image-holder {
+        width: 33%;
+      }
+
+      .text-holder {
+        width: 67%;
+      }
+    }
+  }
+}
+
 
 @include respond-to(md) {
   .product-catalog {
