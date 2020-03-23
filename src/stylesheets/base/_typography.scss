@@ -3,3 +3,19 @@ body {
   // font: normal 125% / 1.4 $text-font-stack;
   font-family: roboto;
 }
+
+.c-white {
+  color: $white;
+}
+
+.c-black {
+  color: $black;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-yellow {
+  background-color: $yellow;
+}

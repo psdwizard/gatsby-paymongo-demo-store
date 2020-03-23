@@ -130,6 +130,10 @@ export const ProductQuery = graphql`
             price
             image
             altText
+            weight
+            dimensions
+            materials
+            OtherInfo
             ratings
           }
         }

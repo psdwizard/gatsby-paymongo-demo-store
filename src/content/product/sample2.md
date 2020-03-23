@@ -6,5 +6,9 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
 price: '250.00'
 image: /static/bootstrap-illustration-3-684597ab3c466b167570a1fa9e74edfc.png
 altText: product image
+weight: 'Lorem'
+dimensions: 'ipsum'
+materials: 'dolor'
+OtherInfo: 'sit amet adipiscing'
 ratings: '5'
 ---
