@@ -4,9 +4,12 @@ import axios from "axios"
 
 import Header from "../components/Header"
 import Banner from "../components/Banner"
+import Footer from "../components/Footer"
 
 const API = () => {
   const [paymentData, setData] = useState({
+    name: "",
+    email: "",
     number: "",
     expiry: "",
     year: "",
@@ -37,7 +40,7 @@ const API = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://fshq-paymongo-app.herokuapp.com/api/payment", paymentData)
+    axios.post("http://localhost:9000/api/payment", paymentData)
     .then(({ data }) => {
       setPaymentResult(data);
       console.log(data)
@@ -49,8 +52,8 @@ const API = () => {
       <Header />
       <main className="checkout-page">
         <Banner content={{ title: 'Checkout' }} />
-        <div className="payment-content-wrapper">
-          <div className="container content-wrapper">
+        <div className="payment-content-wrapper container">
+          <div className="content-wrapper">
             <div className="form-wrapper">
               <form onSubmit={handleSubmit} >
 
@@ -58,8 +61,8 @@ const API = () => {
                   <h2 className="separator-title">Contact Information</h2>
                 </div>
                 <div className="input-group-wrapper">
-                  <input type="text" placeholder="Full Name" required />
-                  <input type="email" placeholder="Email" required />
+                  <input name="name" type="text" placeholder="Full Name" onChange={handleData} required />
+                  <input name="email" type="email" placeholder="Email" onChange={handleData} required />
                 </div>
                 <div className="form-separator">
                   <h2 className="separator-title">Billing Address</h2>
@@ -128,9 +131,8 @@ const API = () => {
             paymentResult.data.type ? window.location.replace(`/success-payment`) : 
               paymentResult.data.code ? "there could be an error in one of ur fields" : ''
         }
-        <Link to="/">Back to home</Link>
       </main>
-      
+      <Footer />
     </div>
   )
 }

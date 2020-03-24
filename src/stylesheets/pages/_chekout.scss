@@ -1,6 +1,7 @@
 .checkout-page {
   .content-wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
@@ -30,6 +31,10 @@
 
   .card-info-wrapper {
     display: flex;
+
+    input {
+      flex: 0 0 30%;
+    }
   }
 
   .card-no-wrapper {
@@ -127,6 +132,53 @@
 
     .subtotal-amount {
       font-weight: bold;
+    }
+  }
+}
+
+@include respond-to(lg-down) {
+  .checkout-page {
+    .form-wrapper {
+      max-width: 60%;
+    }
+
+    .card-info-wrapper {
+      input {
+        max-width: 30%;
+      }
+    }
+
+    .order-summary {
+      flex: 0 0 35%;
+    }
+  }
+}
+
+@include respond-to(md-down) {
+  .checkout-page {
+    .form-wrapper {
+      flex: 0 0 100%;
+      order: 2;
+      max-width: 100%;
+    }
+
+    .order-summary {
+      flex: 0 0 100%;
+      order: 1;
+    }
+  }
+}
+
+@include respond-to(xs) {
+  .checkout-page {
+    .input-group-wrapper {
+      flex-wrap: wrap;
+
+      input {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 10px;
+      }
     }
   }
 }
