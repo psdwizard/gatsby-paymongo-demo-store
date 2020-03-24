@@ -10,6 +10,12 @@ const API = () => {
   const [paymentData, setData] = useState({
     name: "",
     email: "",
+    city: "",
+    country: "",
+    line1: "",
+    line2: "",
+    postal_code: "",
+    state: "",
     number: "",
     expiry: "",
     year: "",
@@ -40,7 +46,7 @@ const API = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:9000/api/payment", paymentData)
+    axios.post("https://paymongo-api.onrender.com/api/payment", paymentData)
     .then(({ data }) => {
       setPaymentResult(data);
       console.log(data)
@@ -68,16 +74,16 @@ const API = () => {
                   <h2 className="separator-title">Billing Address</h2>
                 </div>
                 <div className="input-group-wrapper">
-                  <input type="text" placeholder="Line 1 Address"/>
-                  <input type="text" placeholder="Line 2 Address"/>
+                  <input name="line1" type="text" placeholder="Line 1 Address" onChange={handleData} />
+                  <input name="line2" type="text" placeholder="Line 2 Address" onChange={handleData} />
                 </div>
                 <div className="input-group-wrapper">
-                  <input type="text" placeholder="City"/>
-                  <input type="text" placeholder="State / Province / Region"/>
+                  <input name="city" type="text" placeholder="City" onChange={handleData} />
+                  <input name="state" type="text" placeholder="State / Province / Region" onChange={handleData} />
                 </div>
                 <div className="input-group-wrapper">
-                  <input type="text" placeholder="Country"/>
-                  <input type="text" placeholder="ZIP Code"/>
+                  <input name="country" type="text" placeholder="Country" onChange={handleData} />
+                  <input name="postal_code" type="text" placeholder="ZIP Code" onChange={handleData} />
                 </div>
 
                 <div className="form-separator">
