@@ -87,7 +87,7 @@
       width: 30%;
 
       &:hover {
-        .custom-btn {
+        .btn-swipe-black {
           opacity: 1;
           
           transition: .2s ease-in;
@@ -109,11 +109,15 @@
       transition: all .5s ease-in-out;
     }
 
-    .custom-btn {
+    .btn-swipe-black {
       position: absolute;
       bottom: 0;
 
+      width: 100%;
       max-width: 100%;
+      
+      text-align: center;
+
       opacity: 0;
       transition: .2s ease-in;
       pointer-events: none;
@@ -252,7 +256,7 @@
         width: 100%;
       }
 
-      .custom-btn {
+      .btn-swipe-black {
         margin: 0 auto;
       }
     }

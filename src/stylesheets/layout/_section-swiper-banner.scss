@@ -3,14 +3,6 @@
   height: auto;
   min-height: 700px;
 
-  // .swiper-button-next {
-  //   right: 30px;
-  // }
-
-  // .swiper-button-prev {
-  //   left: 30px;
-  // }
-
   .banner-content {
     display: flex;
     align-items: center;
@@ -39,8 +31,12 @@
     margin-top: 20px;
   }
 
-  .btn-white {
+  .btn-swipe-white {
     margin-top: 20px;
+    width: 100%;
+    max-width: 150px;
+
+    text-align: center;
   }
 
   .image-wrapper {

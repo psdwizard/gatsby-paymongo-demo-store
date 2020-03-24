@@ -7,10 +7,6 @@
   text-align: center;
 
   border: 1px solid $black;
-  // transform: perspective(1px) translateZ(0);
-  // transition-property: color;
-  // transition-duration: .3s;
-
   transition: all .5s ease;
 }
 
@@ -109,6 +105,22 @@
   &:active,
   &:focus {
     color: $black;
+  }
+}
+
+.btn-swipe-white {
+  color: $black;
+
+  background-color: $white;
+
+  &:before {
+    background: $black;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
   }
 }
 

@@ -35,7 +35,7 @@ function SwiperBanner ({content}) {
                       </p>
                       <Link
                         to={item.buttonLink}
-                        className="custom-btn custom-btn-white"
+                        className="btn-swipe-white hover-swipe-right"
                       >
                         {item.buttonText}
                       </Link>

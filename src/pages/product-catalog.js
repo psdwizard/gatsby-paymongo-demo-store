@@ -55,7 +55,7 @@ function ProductCatalog({ data }) {
                               <div className="thumbnail">
                                 <img src={image} className="image-thumbnail" alt={altText} />
                               </div>
-                              <Link to={path} className="custom-btn custom-btn-black">View Details</Link>
+                              <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
                             </div>
                             <div className="text-holder">
                               <h2 className="title">{title}</h2>
@@ -89,7 +89,7 @@ function ProductCatalog({ data }) {
                               <h2 className="title">{title}</h2>
                               <p className="description">{excerptedDescription}</p>
                               <p className="price">${price}</p>
-                              <Link to={path} className="custom-btn custom-btn-black">View Details</Link>
+                              <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
                             </div>
                           </div>
                         )

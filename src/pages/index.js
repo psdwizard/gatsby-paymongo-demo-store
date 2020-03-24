@@ -2,9 +2,7 @@ import React from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import SwiperBanner from "../components/SwiperBanner"
-import CategoryListing from "../components/CategoryListing"
-// import { Link } from "gatsby"
-
+import CardListing from "../components/CardListing"
 
 const swiperData = [
   {
@@ -25,7 +23,7 @@ const swiperData = [
   },
 ]
 
-const categoryData = [
+const cardData = [
   {
     title: 'Mascots',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
@@ -55,7 +53,7 @@ export default () =>
     <Header />
     <main className="home">
       <SwiperBanner content={swiperData} />
-      <CategoryListing category={categoryData} />
+      <CardListing card={cardData} />
     </main>
     <Footer />
   </div>
