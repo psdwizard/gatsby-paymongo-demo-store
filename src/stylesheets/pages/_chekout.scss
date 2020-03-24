@@ -1,0 +1,184 @@
+.checkout-page {
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-wrapper {
+    flex: 0 0 50%;
+    margin-top: 25px;
+  }
+
+  .form-separator {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 15px 0;
+
+    background: $gainsboro;
+
+    .separator-title {
+      margin-bottom: 0;
+    }
+  }
+
+  .input-group-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .card-info-wrapper {
+    display: flex;
+
+    input {
+      flex: 0 0 30%;
+    }
+  }
+
+  .card-no-wrapper {
+    display: flex;
+    margin-bottom: 10px;
+
+    input {
+      flex: 100%;
+    }
+  }
+
+  .card-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    input {
+      flex: 0 0 28%;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .btn-swipe-black {
+    width: 100%;
+  }
+
+  input {
+    flex: 0 0 48%;
+    padding: 10px;
+
+    font-size: 18px;
+
+    border: 1px solid;
+  }
+
+  .order-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 30%;
+    padding: 15px;
+    margin-top: 40px;
+    
+    background: $gainsboro;
+
+    .summary-banner {
+      padding: 10px;
+      
+      color: $white;
+      
+      background: $black;
+    }
+
+    .cart-summary {
+      padding-bottom: 15px;
+
+      border-bottom: 1px solid $black;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .product-image {
+      flex: 0 0 20%;
+      width: 60px;
+      height: 60px;
+
+      background: $black;
+    }
+
+    .product-name {
+      margin-bottom: 10px;
+    }
+
+    .prod-data-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 75%;
+    }
+
+    .monetary-wrapper {
+      display: flex;
+      justify-content: flex-start;
+
+      .product-qtty {
+        margin-right: 10px;
+      }
+    }
+
+    .subtotal-amount {
+      font-weight: bold;
+    }
+  }
+}
+
+@include respond-to(lg-down) {
+  .checkout-page {
+    .form-wrapper {
+      max-width: 60%;
+    }
+
+    .card-info-wrapper {
+      input {
+        max-width: 30%;
+      }
+    }
+
+    .order-summary {
+      flex: 0 0 35%;
+    }
+  }
+}
+
+@include respond-to(md-down) {
+  .checkout-page {
+    .form-wrapper {
+      flex: 0 0 100%;
+      order: 2;
+      max-width: 100%;
+    }
+
+    .order-summary {
+      flex: 0 0 100%;
+      order: 1;
+    }
+  }
+}
+
+@include respond-to(xs) {
+  .checkout-page {
+    .input-group-wrapper {
+      flex-wrap: wrap;
+
+      input {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
