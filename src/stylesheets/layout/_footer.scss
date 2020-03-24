@@ -22,6 +22,7 @@ footer {
   }
 
   .brand-icon {
+    margin-bottom: 10px;
     height: 100%;
     width: 100%;
     object-fit: contain;
@@ -50,18 +51,8 @@ footer {
   }
 }
 
-@include respond-to(xl) {
-  footer .container {
-    max-width: 1100px;
-  }
-}
-
 @include respond-to(lg) {
   footer {
-    .container {
-      max-width: 940px;
-    }
-
     .logo-holder {
       width: 30%;
     }
@@ -70,8 +61,12 @@ footer {
 
 @include respond-to(md) {
   footer {
-    .container {
-      max-width: 700px;
+    .logo-holder {
+      width: 27%;
+    }
+
+   .links-holder {
+      width: 19%;
     }
   }
 }

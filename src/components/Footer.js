@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons"
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
   return (
@@ -13,6 +14,9 @@ const Footer = () => {
               <Link to="/">
                 <img className="brand-icon" src={require('../assets/images/fs-logo.png')} alt="paymongo-logo"/>
               </Link>
+              <p>
+                Built with <FontAwesomeIcon icon={faHeart} className="heart-icon" /> by <a href="https://fullstackhq.com/" target="_blank" rel="noopener noreferrer">Fullstack HQ</a>. Powered by Gatsby + Netlify + PayMongo API.
+              </p>
             </div>
           </div>
           <div className="links-holder">
