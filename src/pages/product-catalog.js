@@ -1,46 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
-import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTh, faList, faAngleDoubleLeft, faArrowAltCircleLeft, faArrowAltCircleRight, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
-import Pagination from "react-js-pagination"
+import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
 
 
-function ProductCatalog(props) {
+function ProductCatalog({ data }) {
   const [activeTab, setActiveTab] = useState('1');
 
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   }
-  const { edges } = props.data.product
-
-  const [activePage, setActivePage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(0)
-  const [range, setRange] = useState(0)
-
-  const handlePageChange = (pageNumber) => {
-    const s = window.scrollTo(0, 0);
-    console.log(s)
-    setActivePage(pageNumber)
-  }
-
-  useEffect(() => {
-    setRange(3)
-    setItemsPerPage(6)
-  }, [])
-
-  const copyArr = edges
-
-  const slicedEdges = copyArr
-                    .slice(
-                      activePage * itemsPerPage - itemsPerPage,
-                      activePage * itemsPerPage
-                    )
-
 
   return (
     <div>
@@ -71,76 +45,57 @@ function ProductCatalog(props) {
               <TabPane tabId="1">
                 <div className="grid">
                   <ul className="product-listing">
-                      {
-                      slicedEdges.map((item, i) => {
+                    {
+                      data.allMarkdownRemark.edges.map(product => {
+                        const { title, description, price, image, altText, path, ratings } = product.node.frontmatter;
+
                         return (
-                          <li className="product-item" key={i}>
+                          <div className="product-item" key={title}>
                             <div className="image-holder">
                               <div className="thumbnail">
-                                <img src={item.node.frontmatter.image} className="image-thumbnail" alt={item.node.frontmatter.altText} />
+                                <img src={image} className="image-thumbnail" alt={altText} />
                               </div>
-                              <Link to={item.node.frontmatter.path} className="custom-btn custom-btn-black">View Details</Link>
+                              <Link to={path} className="custom-btn custom-btn-black">View Details</Link>
                             </div>
                             <div className="text-holder">
-                              <h2 className="title">{item.node.frontmatter.title}</h2>
-                              <p className="price">${item.node.frontmatter.price}</p>
+                              <h2 className="title">{title}</h2>
+                              <p className="price">${price}</p>
                             </div>
-                          </li>
+                          </div>
                         )
                       })
                     }
                   </ul>
                 </div>
-
-                <Pagination
-                  firstPageText={<FontAwesomeIcon icon={faAngleDoubleLeft} className="icon icon-grid display-none" />}
-                  prevPageText={<FontAwesomeIcon icon={faArrowAltCircleLeft} className="icon icon-grid" />}
-                  nextPageText={<FontAwesomeIcon icon={faArrowAltCircleRight} className="icon icon-grid" />}
-                  lastPageText={<FontAwesomeIcon icon={faAngleDoubleRight} className="icon icon-grid display-none" />}
-                  activePage={activePage}
-                  itemsCountPerPage={itemsPerPage}
-                  totalItemsCount={edges.length}
-                  pageRangeDisplayed={range}
-                  onChange={handlePageChange}
-                />
               </TabPane>
               <TabPane tabId="2">
                 <div className="list">
                   <ul className="product-listing">
                     {
-                      slicedEdges.map((item, i) => {
-                        let description = item.node.frontmatter.description;
+                      data.allMarkdownRemark.edges.map(product => {
+                        const { title, description, price, image, altText, path, ratings } = product.node.frontmatter;
+  
                         let dotsDescription = description.length > 220 ? '...' : '';
                         let excerptedDescription = description.slice(0, 220) + dotsDescription;
+
                         return (
-                        <div className="product-item" key={i}>
-                          <div className="image-holder">
-                            <div className="thumbnail">
-                              <img src={item.node.frontmatter.image} className="image-thumbnail" alt={item.node.frontmatter.altText} />
+                          <div className="product-item" key={title}>
+                            <div className="image-holder">
+                              <div className="thumbnail">
+                                <img src={image} className="image-thumbnail" alt={altText} />
+                              </div>
+                            </div>
+                            <div className="text-holder">
+                              <h2 className="title">{title}</h2>
+                              <p className="description">{excerptedDescription}</p>
+                              <p className="price">${price}</p>
+                              <Link to={path} className="custom-btn custom-btn-black">View Details</Link>
                             </div>
                           </div>
-                          <div className="text-holder">
-                            <h2 className="title">{item.node.frontmatter.title}</h2>
-                            <p className="description">{excerptedDescription}</p>
-                            <p className="price">${item.node.frontmatter.price}</p>
-                            <Link to={item.node.frontmatter.path}className="custom-btn custom-btn-black">View Details</Link>
-                          </div>
-                        </div>
                         )
                       })
                     }
                   </ul>
-
-                <Pagination
-                  firstPageText={<FontAwesomeIcon icon={faAngleDoubleLeft} className="icon icon-grid display-none" />}
-                  prevPageText={<FontAwesomeIcon icon={faArrowAltCircleLeft} className="icon icon-grid" />}
-                  nextPageText={<FontAwesomeIcon icon={faArrowAltCircleRight} className="icon icon-grid" />}
-                  lastPageText={<FontAwesomeIcon icon={faAngleDoubleRight} className="icon icon-grid display-none" />}
-                  activePage={activePage}
-                  itemsCountPerPage={itemsPerPage}
-                  totalItemsCount={edges.length}
-                  pageRangeDisplayed={range} onChange={handlePageChange}
-                />
                 </div>
               </TabPane>
             </TabContent>
@@ -154,20 +109,17 @@ function ProductCatalog(props) {
 
 export default ProductCatalog
 
-export const pageQuery = graphql`
+export const ProductQuery = graphql`
   query AllProduct {
-    product: allMarkdownRemark(
-      sort: { order: ASC, fields: [frontmatter___date] }
-      limit: 600
-      filter: { fileAbsolutePath: {regex : "\/product/"} },
-    ) {
+    allMarkdownRemark (
+      sort: {fields: [frontmatter___date], order: DESC}
+    ){
       edges {
         node {
-          html
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             path
             title
-            date
             description
             price
             image

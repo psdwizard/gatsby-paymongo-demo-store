@@ -216,6 +216,15 @@
         &.one-star .icon:nth-child(n+2) {
           color: $mid-grey;
         }
+
+        // &.one-star,
+        // &.two-star,
+        // &.three-star,
+        // &.four-star {
+        //   .icon {
+        //     color: $mid-grey;
+        //   }
+        // }
       }
       
       .progress-bar-complete,
