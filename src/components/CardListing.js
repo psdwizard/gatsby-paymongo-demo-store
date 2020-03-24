@@ -17,7 +17,7 @@ function cardListing ({card}) {
                 <div className="custom-card-text-wrapper">
                   <h3 className="custom-card-title">{item.title}</h3>
                   <p className="custom-card-description">{excerptedDescription}</p>
-                  <Link to={item.url} className="custom-btn custom-btn-black custom-btn-no-border custom-card-button">Discover</Link>
+                  <Link to={item.url} className="btn-swipe-black hover-swipe-right">Discover</Link>
                 </div>
                 <div className="custom-card-image-wrapper">
                   <img src={item.image} className="custom-card-image" alt={item.imageName}/>
