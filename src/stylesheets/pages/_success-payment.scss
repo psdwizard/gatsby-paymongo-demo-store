@@ -1,0 +1,27 @@
+.success-payment {
+  text-align: center;
+
+  .text-wrapper {
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    margin-top: 17px;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  .mascot {
+    margin-top: 28px;
+    width: 100%;
+    max-width: 414px;
+  }
+
+  .btn-swipe-black {
+    display: block;
+    max-width: 213px;
+    margin: 0 auto 20px;
+  }
+}
