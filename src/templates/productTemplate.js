@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebookF, faLinkedinIn} from "@fortawesome/free-brands-svg-icons"
-import { faStar, faTag } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"

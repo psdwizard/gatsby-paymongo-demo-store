@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-wrapper">
           <div className="logo-holder">
-            <div className="brand-icon-holder">
+            <div className="brand-holder">
               <Link to="/">
                 <img className="brand-icon" src={require('../assets/images/fs-logo.png')} alt="paymongo-logo"/>
               </Link>
