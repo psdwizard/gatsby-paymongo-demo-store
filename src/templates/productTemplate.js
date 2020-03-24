@@ -228,7 +228,6 @@ export const pageQuery = graphql`
         dimensions
         materials
         OtherInfo
-        ratings
       }
     }
   }

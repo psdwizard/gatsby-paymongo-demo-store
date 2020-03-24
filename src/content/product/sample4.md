@@ -10,5 +10,4 @@ weight: '400 g'
 dimensions: '10 x 10 x 15 cm'
 materials: 60% cotton, 40% polyester
 OtherInfo: Aliquam dapibus mauris sed diam viverra, consequat auctor.
-ratings: '5'
 ---
