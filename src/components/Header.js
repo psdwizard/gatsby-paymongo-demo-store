@@ -13,6 +13,7 @@ function Header(props) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [cartItems, setCartItems] = useState(undefined);
+  const totalPrice = 0
 
   console.log(cartItems);
   
@@ -94,7 +95,17 @@ function Header(props) {
           </ul>
         </ModalBody>
         <div className="total-holder">
-          <h3 className="total">Total: </h3>
+          <h3 className="total">
+            Total: 
+            {/* { 
+                cartItems.map((item, i) => {
+                    totalPrice = totalPrice + (item.qtty * parseInt(item.price));
+                    return (
+                     <div key={i}>{totalPrice}</div>
+                    )
+                })
+              } */}
+            </h3>
         </div>
         <div className="btn-holder">
           <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
