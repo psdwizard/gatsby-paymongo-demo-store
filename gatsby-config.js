@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/https://psdwizard.github.io/fullstackhq-paymongo/",
   plugins: [
     `gatsby-plugin-netlify-cms`,
     {
