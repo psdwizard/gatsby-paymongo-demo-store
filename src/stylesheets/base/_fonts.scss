@@ -7,3 +7,8 @@
 
 // GET FROM GOOGLE FONTS IF YOU CAN!
 // Handle font variants as proper font-weights and styles INSTEAD of declaring NEW families. Follow Sample Above
+
+@include font-face($font-montserrat, '../assets/fonts/', 'Montserrat-Light', 'Montserrat-Light', 200);
+@include font-face($font-montserrat, '../assets/fonts/', 'Montserrat-Regular', 'Montserrat-Regular', 400);
+@include font-face($font-montserrat, '../assets/fonts/', 'Montserrat-Bold', 'Montserrat-Bold', 600);
+@include font-face($font-montserrat, '../assets/fonts/', 'Montserrat-SemiBold', 'Montserrat-SemiBold', 500);
