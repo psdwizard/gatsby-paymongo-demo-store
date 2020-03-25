@@ -31,21 +31,6 @@ export default function Template({
       price: content.price,
       cartPressed: true
     })
-<<<<<<< HEAD
-
-    console.log('this is my current cart', cartList)
-
-    if ( cartList.productName === "" ) {
-      alert('i wont do anything')
-    } else {
-      var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
-      console.log("product name:" + cartList.productName)
-      allEntries.push(cartList)   
-      localStorage.setItem('cartList', JSON.stringify(allEntries))
-      alert('added!') 
-    }
-=======
->>>>>>> f4006b1bb300c4cd8470b63c9247f811c69d2824
   }
 
   const handleChange = (e) => {
