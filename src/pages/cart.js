@@ -20,7 +20,12 @@ const Cart = () => {
   ])
 
   return (
-    <div>Cart</div>
+    <div>Cart
+
+    {[...cartList.keys()].map(i => (
+      <li key={i}>fsdfsdfdsfsd</li>
+    ))}
+    </div>
   )
 }
 

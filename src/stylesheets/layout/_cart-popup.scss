@@ -1,0 +1,26 @@
+.modal {
+  align-content: flex-end;
+  justify-content: flex-end;
+
+  &.show {
+    display: flex!important;
+  }
+
+  .modal-dialog {
+     margin: 0!important;
+  }
+
+  .modal-content {
+    min-height: 100vh;
+
+    border-radius: 0;
+  }
+
+  .cart-product-listing {
+    list-style: none;
+  }
+
+  .product-image {
+    width: 100%;
+  }
+}

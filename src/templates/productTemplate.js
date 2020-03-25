@@ -34,7 +34,7 @@ export default function Template({
       alert('i wont do anything')
     } else {
       var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
-      console.log(cartList.productName)
+      console.log("product name:" + cartList.productName)
       allEntries.push(cartList)   
       localStorage.setItem('cartList', JSON.stringify(allEntries))
       alert('added!') 
