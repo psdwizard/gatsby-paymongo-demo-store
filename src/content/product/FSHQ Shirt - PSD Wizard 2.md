@@ -1,6 +1,6 @@
 ---
 setID: 15
-path: /product/FSHQ Shirt - PSD Wizard 2
+path: /product/FSHQShirt-PSDWizard2
 date: 2017-11-05
 title: FSHQ Shirt - PSD Wizard 2
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, ligula non euismod posuere, ligula enim placerat purus, pharetra ultrices metus est in mi. Sed malesuada elementum odio et feugiat. Donec in neque neque. Proin gravida vehicula ultricies. Pellentesque lacinia fermentum faucibus. Aliquam dapibus mauris sed diam viverra, consequat auctor.

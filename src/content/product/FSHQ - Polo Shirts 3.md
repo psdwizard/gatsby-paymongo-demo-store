@@ -1,6 +1,6 @@
 ---
 setID: 5
-path: /product/FSHQ - Polo Shirts 3
+path: /product/FSHQ-PoloShirts3
 date: 2017-11-05
 title: FSHQ - Polo Shirts 3
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, ligula non euismod posuere, ligula enim placerat purus, pharetra ultrices metus est in mi. Sed malesuada elementum odio et feugiat. Donec in neque neque. Proin gravida vehicula ultricies. Pellentesque lacinia fermentum faucibus. Aliquam dapibus mauris sed diam viverra, consequat auctor.

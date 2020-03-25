@@ -14,8 +14,7 @@ function Header(props) {
   const toggle = () => setModal(!modal);
   
   const cartItems = JSON.parse(localStorage.getItem('cartList'))
-  
-  // console.log(cartItems);
+  // console.log("itemsss:" + cartItems);
 
   return (
     <header className="header">
@@ -66,6 +65,8 @@ function Header(props) {
                 cartItems.map((item, i) => {
 
                   let subtotalItem = parseInt(item.price) * item.qtty
+
+                  // let total = subTotalItem
                   return (
                     <li key={i} className="cart-product-item">
                       <div className="image-wrapper">
@@ -77,7 +78,7 @@ function Header(props) {
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
                       <p className="computation">{item.qtty} x ${item.price} = {subtotalItem}</p>
-                      </div>
+                      </div>                  
                     </li>
                   )
                 })
@@ -86,6 +87,9 @@ function Header(props) {
           
           </ul>
         </ModalBody>
+        <div className="total-holder">
+          <h3 className="total">Total: </h3>
+        </div>
         <div className="btn-holder">
           <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
           <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>

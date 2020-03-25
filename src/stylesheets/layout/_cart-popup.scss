@@ -47,6 +47,17 @@
     margin-bottom: 9px; 
   }
 
+  .total-holder {
+    padding: 20px 0;
+
+    border-top: 1px solid $black;
+  }
+
+  .total {
+    font-size: 23px;
+    text-align: center;
+  }
+
   .image-wrapper {
     display: flex;
     flex-direction: column;
