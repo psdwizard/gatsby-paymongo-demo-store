@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,31 +14,23 @@ export default function Template({
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
   const [cartList, setCartList] = useState({
+    setID: null,
     productName: "",
     description: "",
     price: "",
-    qtty: "1"
+    qtty: "1",
+    cartPressed: false
   })
 
   const handleClick = (content) => {
     setCartList({
       ...cartList,
+      setID: content.setID,
       productName: content.title,
       description: content.description,
-      price: content.price
+      price: content.price,
+      cartPressed: true
     })
-
-    console.log('this is my current cart', cartList)
-
-    if ( cartList.productName === "" ) {
-      alert('i wont do anything')
-    } else {
-      var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
-      console.log(cartList.productName)
-      allEntries.push(cartList)   
-      localStorage.setItem('cartList', JSON.stringify(allEntries))
-      alert('added!') 
-    }
   }
 
   const handleChange = (e) => {
@@ -48,6 +40,27 @@ export default function Template({
       'qtty' : value 
     })
   }
+
+  useEffect(() => {
+    if ( cartList.productName === "" || cartList.cartPressed === false ) {
+      console.log('blank state')
+    } else {
+      var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
+      const x = (allEntries.findIndex(x => x.setID === cartList.setID))
+      if (x >= 0) {  
+        allEntries[x].qtty = parseInt(allEntries[x].qtty) + parseInt(cartList.qtty);
+      } else {
+        allEntries.push(cartList)
+      }   
+
+      localStorage.setItem('cartList', JSON.stringify(allEntries))
+      setCartList({
+        ...cartList, 
+        cartPressed: false
+      })
+      alert('added!') 
+    }
+  }, [cartList])
 
   return (
     <div>
