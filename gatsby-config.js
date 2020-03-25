@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: 'fullstackhq-paymongo',
   plugins: [
     `gatsby-plugin-netlify-cms`,
     {
