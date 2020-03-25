@@ -11,6 +11,7 @@ collections:
     folder: product
     create: true
     fields:
+      - { name: setID, label: setID }
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }

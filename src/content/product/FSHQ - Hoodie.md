@@ -1,4 +1,5 @@
 ---
+setID: 1
 path: /product/FSHQ - Hoodie
 date: 2017-11-05
 title: FSHQ - Hoodie
