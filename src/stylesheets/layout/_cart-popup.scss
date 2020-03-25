@@ -33,7 +33,14 @@
   .cart-product-item {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 0;
     margin-bottom: 18px;
+
+    // border-bottom: 1px solid #dee2e6;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   .product-image {
@@ -57,7 +64,7 @@
   .total-holder {
     padding: 20px 0;
 
-    border-top: 1px solid $black;
+    border-top: 1px solid #dee2e6;
   }
 
   .total {
