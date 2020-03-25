@@ -140,6 +140,12 @@
   }
 }
 
+.btn-link {
+  @include on-event {
+    text-decoration: none;
+  }
+}
+
 @include respond-to(lg) {
   .hover-swipe-right {
     padding: 8px 20px;

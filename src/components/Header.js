@@ -64,28 +64,32 @@ function Header(props) {
             {
               cartItems ? 
                 cartItems.map((item, i) => {
+
+                  let subtotalItem = parseInt(item.price) * item.qtty
                   return (
                     <li key={i} className="cart-product-item">
                       <div className="image-wrapper">
-                        {/* <img src={require("../images/../assets/images/bootstrap-illustration-3.png")} className="product-image" alt="product-name" /> */}
+                        <div className="thumbnail-holder">
+                          <img src={item.image} className="product-image" alt={item.productName} />
+                        </div>
                         <Button color="link">Remove</Button>
                       </div>
                       <div className="text-wrapper">
-                      <img src={item.image} className="product-image" alt={item.productName} />
                       <h4 className="product-name">{item.productName}</h4>
-                      <p className="computation">Qtty: {item.qtty}</p>
-                      <p className="computation">{item.price}</p>
+                      <p className="computation">{item.qtty} x ${item.price} = {subtotalItem}</p>
                       </div>
                     </li>
                   )
                 })
-              : 'ur cart is empty, r u a hobo?'
+              : 'Your cart is empty'
             }
           
           </ul>
         </ModalBody>
-        <Link to="/checkout" className="btn-swipe-black hover-swipe-right">Checkout</Link>
-        <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
+        <div className="btn-holder">
+          <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
+          <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
+        </div>
       </Modal>
     </header>
   )
