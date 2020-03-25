@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
@@ -11,8 +11,11 @@ function Header(props) {
   } = props;
 
   const [modal, setModal] = useState(false);
-
   const toggle = () => setModal(!modal);
+  
+  const cartItems = JSON.parse(localStorage.getItem('cartList'))
+  
+  // console.log(cartItems);
 
   return (
     <header className="header">
@@ -58,16 +61,27 @@ function Header(props) {
         <ModalHeader toggle={toggle}>Your Cart</ModalHeader>
         <ModalBody>
           <ul className="cart-product-listing">
-            <li className="cart-product-item">
-              <div className="image-wrapper">
-                <img src={require("../images/../assets/images/bootstrap-illustration-3.png")} className="product-image" alt="product-name" />
-                <Button color="link">Remove</Button>
-              </div>
-              <div className="text-wrapper">
-                <h4 className="product-name">Blue T-shirt</h4>
-                <p className="computation">1 X $400.00 = $400.00</p>
-              </div>
-            </li>
+            {
+              cartItems ? 
+                cartItems.map((item, i) => {
+                  return (
+                    <li key={i} className="cart-product-item">
+                      <div className="image-wrapper">
+                        {/* <img src={require("../images/../assets/images/bootstrap-illustration-3.png")} className="product-image" alt="product-name" /> */}
+                        <Button color="link">Remove</Button>
+                      </div>
+                      <div className="text-wrapper">
+                      <img src={item.image} className="product-image" alt={item.productName} />
+                      <h4 className="product-name">{item.productName}</h4>
+                      <p className="computation">Qtty: {item.qtty}</p>
+                      <p className="computation">{item.price}</p>
+                      </div>
+                    </li>
+                  )
+                })
+              : 'ur cart is empty, r u a hobo?'
+            }
+          
           </ul>
         </ModalBody>
         <Link to="/checkout" className="btn-swipe-black hover-swipe-right">Checkout</Link>

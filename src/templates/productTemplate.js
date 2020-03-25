@@ -19,6 +19,7 @@ export default function Template({
     description: "",
     price: "",
     qtty: "1",
+    image: "",
     cartPressed: false
   })
 
@@ -29,6 +30,7 @@ export default function Template({
       productName: content.title,
       description: content.description,
       price: content.price,
+      image: content.image,
       cartPressed: true
     })
   }
