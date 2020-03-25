@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
@@ -12,9 +12,14 @@ function Header(props) {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const [cartItems, setCartItems] = useState(undefined);
+
+  console.log(cartItems);
   
-  const cartItems = JSON.parse(localStorage.getItem('cartList'))
-  // console.log("itemsss:" + cartItems);
+  useEffect(() => {
+    setCartItems(JSON.parse(localStorage.getItem('cartList')))
+    console.log(cartItems)
+  }, [])
 
   return (
     <header className="header">
