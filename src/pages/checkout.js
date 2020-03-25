@@ -42,6 +42,8 @@ const API = () => {
       ...paymentData,
       [name]: value
     })
+    
+    localStorage.setItem('myValueInLocalStorage', JSON.stringify(paymentData));
   }
 
   const handleSubmit = (e) => {

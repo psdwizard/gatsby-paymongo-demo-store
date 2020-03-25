@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,6 +13,42 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html } = markdownRemark
+  const [cartList, setCartList] = useState({
+    productName: "",
+    description: "",
+    price: "",
+    qtty: "1"
+  })
+
+  const handleClick = (content) => {
+    setCartList({
+      ...cartList,
+      productName: content.title,
+      description: content.description,
+      price: content.price
+    })
+
+    console.log('this is my current cart', cartList)
+
+    if ( cartList.productName === "" ) {
+      alert('i wont do anything')
+    } else {
+      var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
+      console.log(cartList.productName)
+      allEntries.push(cartList)   
+      localStorage.setItem('cartList', JSON.stringify(allEntries))
+      alert('added!') 
+    }
+  }
+
+  const handleChange = (e) => {
+    const value = e.target.value
+    setCartList({
+      ...cartList,
+      'qtty' : value 
+    })
+  }
+
   return (
     <div>
       <Header />
@@ -31,12 +67,15 @@ export default function Template({
                   <p>{frontmatter.description}</p>
                 </div>
                 <div className="add-cart-holder">
-                  <select className="quantity-select">
+                  <select name="qtty" className="quantity-select" onChange={handleChange}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                   </select>
-                  <button to='/' className="btn-swipe-black hover-swipe-right">Add to Cart</button>
+                  <button onClick={() => handleClick(frontmatter)} 
+                    className="btn-swipe-black hover-swipe-right">
+                    Add to Cart
+                  </button>
                 </div>
                 <div className="social-holder">
                   <Link to="/" className="icon-link twitter">

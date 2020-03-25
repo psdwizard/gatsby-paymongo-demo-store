@@ -12,6 +12,8 @@ import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
 function ProductCatalog({ data }) {
   const [activeTab, setActiveTab] = useState('1');
 
+
+
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   }
