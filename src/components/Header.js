@@ -70,6 +70,7 @@ function Header(props) {
                 cartItems.map((item, i) => {
 
                   let subtotalItem = parseInt(item.price) * item.qtty
+                  console.log("itemsss:" + item);
 
                   // let total = subTotalItem
                   return (

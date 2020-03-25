@@ -1,15 +1,22 @@
 .modal {
-  align-content: flex-end;
-  justify-content: flex-end;
+  left: initial!important;
+  
 
   &.show {
-    display: flex!important;
+    right: 0;
   }
 
   .modal-dialog {
-     margin: 0!important;
-     width: auto;
-     min-width: 484px;
+    position: absolute;
+    right: 0;
+    
+    margin: 0!important;
+    width: auto;
+    min-width: 484px;
+    right: 0;
+
+    // transition: none!important;
+
   }
 
   .modal-content {
