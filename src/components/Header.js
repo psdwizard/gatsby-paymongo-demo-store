@@ -12,15 +12,9 @@ function Header(props) {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-  const [cartItems, setCartItems] = useState(undefined);
+  const cartItems = JSON.parse(localStorage.getItem('cartList'))
   const totalPrice = 0
 
-  console.log(cartItems);
-  
-  useEffect(() => {
-    setCartItems(JSON.parse(localStorage.getItem('cartList')))
-    console.log(cartItems)
-  }, [])
 
   return (
     <header className="header">
@@ -50,12 +44,12 @@ function Header(props) {
           <ul className="icon-listing">
             <li className="icon-item">
               <Link className="icon-link" to="">
-               <FontAwesomeIcon icon={faSearch} className="icon icon-search" />
+                <FontAwesomeIcon icon={faSearch} className="icon icon-search" />
               </Link>
             </li>
             <li className="icon-item" onClick={toggle}>
               <div className="icon-link">
-               <FontAwesomeIcon icon={faShoppingBag} className="icon icon-shopping-bag" />
+                <FontAwesomeIcon icon={faShoppingBag} className="icon icon-shopping-bag" />
               </div>
             </li>
           </ul>
@@ -69,11 +63,8 @@ function Header(props) {
             {
               cartItems ? 
                 cartItems.map((item, i) => {
-
                   let subtotalItem = parseInt(item.price) * item.qtty
-                  console.log("itemsss:" + item);
 
-                  // let total = subTotalItem
                   return (
                     <li key={i} className="cart-product-item">
                       <div className="image-wrapper">
