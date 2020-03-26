@@ -12,7 +12,7 @@ function Header(props) {
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-  const cartItems = JSON.parse(localStorage.getItem('cartList'))
+  const cartItems = typeof window !== `undefined` ? JSON.parse(localStorage.getItem('cartList')) : null
   const totalPrice = 0
 
 
