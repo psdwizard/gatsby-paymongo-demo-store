@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import SwiperBanner from "../components/SwiperBanner"
 import CardListing from "../components/CardListing"
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet"
 
 const swiperData = [
   {
@@ -52,9 +52,8 @@ const cardData = [
 export default () =>
   <div>
     <Helmet>
-      <meta charSet="utf-8" />
       <title>Fullstack HQ</title>
-      <meta itemprop="image" content={require("../assets/images/Bootstrap Good job.png")} />
+      <meta name="description" content="" />
     </Helmet>
     <Header />
     <main className="home">

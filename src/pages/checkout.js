@@ -5,6 +5,7 @@ import axios from "axios"
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
+import {Helmet} from "react-helmet"
 
 const API = () => {
   const [paymentData, setData] = useState({
@@ -57,6 +58,10 @@ const API = () => {
 
   return (
     <div className="sass-ready">
+      <Helmet>
+        <title>Fullstack HQ | Checkout</title>
+        <meta name="description" content="" />
+      </Helmet>
       <Header />
       <main className="checkout-page">
         <Banner content={{ title: 'Checkout' }} />

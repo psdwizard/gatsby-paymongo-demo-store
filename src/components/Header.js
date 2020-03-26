@@ -16,28 +16,30 @@ function Header(props) {
 
   if (typeof window !== `undefined`) {
     cartItems = JSON.parse(localStorage.getItem('cartList'))
-    console.log('xxx: ', cartItems)
   }
-
-  const totalPrice = 0
-
-
+  
+  function sumProperty(arr, type) {
+    return arr.reduce((total, obj) => {
+      if (typeof obj[type] === 'string') {
+        return total + Number(obj[type]);
+      }
+      return total + obj[type];
+    }, 0);
+  }
+  
+  let totalAmount = ( sumProperty(cartItems, 'price') ).toFixed(2); 
+  console.log( 'totalAmount:', totalAmount  ); 
+  
+  let totalQuantity = sumProperty(cartItems, 'qtty'); 
+  console.log( 'totalQuantity:', totalQuantity  ); 
+  
   return (
     <header className="header">
       <div className="container">
         <nav>
           <ul className="link-listing">
             <li className="link-item">
-              <Link to="/product-catalog" className="link">Product</Link>
-            </li>
-            <li className="link-item">
-              <Link to="/" className="link">About</Link>
-            </li>
-            <li className="link-item">
-              <Link to="/" className="link">Collection</Link>
-            </li>
-            <li className="link-item show-mb">
-              <Link to="/product-catalog" className="link">Shop</Link>
+              <Link to="/product-catalog" className="link">Products</Link>
             </li>
           </ul>
 
@@ -48,14 +50,10 @@ function Header(props) {
           </div>
 
           <ul className="icon-listing">
-            <li className="icon-item">
-              <Link className="icon-link" to="">
-                <FontAwesomeIcon icon={faSearch} className="icon icon-search" />
-              </Link>
-            </li>
             <li className="icon-item" onClick={toggle}>
               <div className="icon-link">
                 <FontAwesomeIcon icon={faShoppingBag} className="icon icon-shopping-bag" />
+                <span className="cart-quantity">{totalQuantity}</span>
               </div>
             </li>
           </ul>
@@ -69,7 +67,7 @@ function Header(props) {
             {
               cartItems ? 
                 cartItems.map((item, i) => {
-                  let subtotalItem = parseInt(item.price) * item.qtty
+                  let subtotalItem = (parseInt(item.price) * item.qtty).toFixed(2)
 
                   return (
                     <li key={i} className="cart-product-item">
@@ -91,23 +89,22 @@ function Header(props) {
           
           </ul>
         </ModalBody>
-        <div className="total-holder">
-          <h3 className="total">
-            Total: 
-            {/* { 
-                cartItems.map((item, i) => {
-                    totalPrice = totalPrice + (item.qtty * parseInt(item.price));
-                    return (
-                     <div key={i}>{totalPrice}</div>
-                    )
-                })
-              } */}
-            </h3>
-        </div>
-        <div className="btn-holder">
-          <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
-          <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
-        </div>
+        {
+          cartItems ? 
+          <>
+            <div className="total-holder">
+              <h3 className="total">
+                Total: {} 
+                {totalAmount}
+                </h3>
+            </div>
+            <div className="btn-holder">
+              <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
+              <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
+            </div>
+          </>
+         : ''
+        }
       </Modal>
     </header>
   )

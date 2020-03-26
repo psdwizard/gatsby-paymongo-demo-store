@@ -7,6 +7,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Pagination, PaginationItem,
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
+import {Helmet} from "react-helmet"
 
 
 function ProductCatalog({ data }) {
@@ -20,6 +21,10 @@ function ProductCatalog({ data }) {
 
   return (
     <div>
+      <Helmet>
+        <title>Fullstack HQ | Products</title>
+        <meta name="description" content="" />
+      </Helmet>
       <Header />
       <main className="product-catalog">
         <Banner content={{ title: 'All Products' }} />
