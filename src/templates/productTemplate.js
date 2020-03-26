@@ -7,6 +7,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import {Helmet} from "react-helmet"
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -60,12 +61,15 @@ export default function Template({
         ...cartList, 
         cartPressed: false
       })
-      alert('added!') 
+      // alert('added!') 
     }
   }, [cartList])
 
   return (
     <div>
+      <Helmet>
+        <title>Fullstack HQ - {frontmatter.title}</title>
+      </Helmet>
       <Header />
       <main className="product-details">
         <div className="container">

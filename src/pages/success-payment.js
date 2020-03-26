@@ -2,10 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import {Helmet} from "react-helmet"
 
 const successPayment = () => {
   return (
     <div>
+      <Helmet>
+        <title>Fullstack HQ | Success Payment</title>
+        <meta name="description" content="" />
+      </Helmet>
       <Header />
       <main className="success-payment">
         <div className="container">
