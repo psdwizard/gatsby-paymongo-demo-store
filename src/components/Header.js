@@ -28,10 +28,7 @@ function Header(props) {
   }
   
   let totalAmount = ( sumProperty(cartItems, 'price') ).toFixed(2); 
-  console.log( 'totalAmount:', totalAmount  ); 
-  
   let totalQuantity = sumProperty(cartItems, 'qtty'); 
-  console.log( 'totalQuantity:', totalQuantity  ); 
   
   return (
     <header className="header">
@@ -79,7 +76,7 @@ function Header(props) {
                       </div>
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
-                      <p className="computation">{item.qtty} x ${item.price} = {subtotalItem}</p>
+                      <p className="computation">{item.qtty} x ${item.price} = ${subtotalItem}</p>
                       </div>                  
                     </li>
                   )
@@ -95,7 +92,7 @@ function Header(props) {
             <div className="total-holder">
               <h3 className="total">
                 Total: {} 
-                {totalAmount}
+                ${totalAmount}
                 </h3>
             </div>
             <div className="btn-holder">
