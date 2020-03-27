@@ -42,6 +42,7 @@ function Header(props) {
   if (cartItems !== null) {
     totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
     totalQuantity = sumProperty(cartItems, 'qtty'); 
+    localStorage.setItem('total', JSON.stringify(totalAmount))
   }
   
   return (
