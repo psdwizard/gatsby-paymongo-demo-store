@@ -6,7 +6,7 @@
   }
 
   .form-wrapper {
-    flex: 0 0 50%;
+    flex: 0 0 100%;
     margin-top: 25px;
   }
 
@@ -138,9 +138,9 @@
 
 @include respond-to(lg-down) {
   .checkout-page {
-    .form-wrapper {
-      max-width: 60%;
-    }
+    // .form-wrapper {
+    //   max-width: 60%;
+    // }
 
     .card-info-wrapper {
       input {
@@ -148,9 +148,9 @@
       }
     }
 
-    .order-summary {
-      flex: 0 0 35%;
-    }
+    // .order-summary {
+    //   flex: 0 0 35%;
+    // }
   }
 }
 

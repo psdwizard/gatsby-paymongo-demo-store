@@ -21,7 +21,7 @@ export default function Template({
     qtty: "1",
     image: "",
     cartPressed: false,
-    totalPrice: ""
+    totalPrice: null
   })
 
   const handleClick = (content) => {
@@ -33,7 +33,7 @@ export default function Template({
       price: content.price,
       image: content.image,
       cartPressed: true,
-      totalPrice: content.price * content.qtty
+      totalPrice: parseInt(cartList.qtty) * parseInt(content.price)
     })
   }
 
@@ -53,6 +53,7 @@ export default function Template({
       const x = (allEntries.findIndex(x => x.setID === cartList.setID))
       if (x >= 0) {  
         allEntries[x].qtty = parseInt(allEntries[x].qtty) + parseInt(cartList.qtty);
+        allEntries[x].totalPrice = parseInt(allEntries[x].qtty) * parseInt(allEntries[x].price);
       } else {
         allEntries.push(cartList)
       }   

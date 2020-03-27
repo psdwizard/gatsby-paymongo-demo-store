@@ -106,35 +106,6 @@ const API = () => {
                 <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY {paymentData.currency} {paymentData.paymentAmount}.{paymentData.decimal}</button>
               </form>
             </div>
-            <div className="order-summary">
-              <div className="cart-summary">
-                <div className="summary-banner text-center">SHOPPING CART</div>
-                <div className="cart-item">
-                  <div className="product-image">&nbsp;</div>
-                  <div className="prod-data-wrapper">
-                    <p className="product-name">{paymentData.description}</p>
-                    <div className="monetary-wrapper">
-                      <p className="product-qtty">x5</p>
-                      <p className="product-price">{paymentData.currency} {paymentData.paymentAmount}.{paymentData.decimal}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="cart-item">
-                  <div className="product-image">&nbsp;</div>
-                  <div className="prod-data-wrapper">
-                    <p className="product-name">{paymentData.description}</p>
-                    <div className="monetary-wrapper">
-                      <p className="product-qtty">x5</p>
-                      <p className="product-price">{paymentData.currency} {paymentData.paymentAmount}.{paymentData.decimal}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <p className="mb-0">Subtotal:</p>
-                <h2 className="subtotal-amount">PHP 250.10</h2>
-              </div>
-            </div>
           </div>
         </div>
 
