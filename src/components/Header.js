@@ -1,12 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 function Header(props) {
   const {
-    buttonLabel,
     className
   } = props;
 
@@ -19,8 +18,6 @@ function Header(props) {
   if (typeof window !== `undefined`) {
     cartItems = JSON.parse(localStorage.getItem('cartList'))
   }
-
-  const totalPrice = 0
 
   const removeItem = item => {
     const selectedItem = cartItems.findIndex(x => x.setID === item.setID)
@@ -37,15 +34,6 @@ function Header(props) {
         return total + Number(obj[type]);
       }
       return total + obj[type];
-    }, 0);
-  }
-
-  function getTotal(arr, type) {
-    return arr.reduce((total, obj) => {
-      if (typeof obj[type] === 'string') {
-        return total + cartItems.price * cartItems.qtty;
-      }
-      return total + cartItems.price * cartItems.qtty;
     }, 0);
   }
   
@@ -100,7 +88,7 @@ function Header(props) {
                       </div>
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
-                      <p className="computation">{item.qtty} x ${item.price} = ${subtotalItem}</p>
+                      <p className="computation">{item.qtty} x PHP{item.price} = PHP{subtotalItem}</p>
                       </div>                  
                     </li>
                   )
@@ -116,7 +104,7 @@ function Header(props) {
             <div className="total-holder">
               <h3 className="total">
                 Total: {} 
-                ${totalAmount}
+                PHP{} {totalAmount}
                 </h3>
             </div>
             <div className="btn-holder">

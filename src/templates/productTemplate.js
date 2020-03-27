@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter, faFacebookF, faLinkedinIn} from "@fortawesome/free-brands-svg-icons"
-import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -13,7 +12,7 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter } = markdownRemark
   const [cartList, setCartList] = useState({
     setID: null,
     productName: "",
@@ -34,7 +33,7 @@ export default function Template({
       price: content.price,
       image: content.image,
       cartPressed: true,
-      totalPrice: content.price*content.qtty
+      totalPrice: content.price * content.qtty
     })
   }
 

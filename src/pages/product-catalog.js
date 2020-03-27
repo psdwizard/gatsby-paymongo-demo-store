@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, graphql } from "gatsby"
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
-import { TabContent, TabPane, Nav, NavItem, NavLink, Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons'
@@ -54,7 +54,7 @@ function ProductCatalog({ data }) {
                   <ul className="product-listing">
                     {
                       data.allMarkdownRemark.edges.map(product => {
-                        const { title, description, price, image, altText, path, ratings } = product.node.frontmatter;
+                        const { title, price, image, altText, path } = product.node.frontmatter;
 
                         return (
                           <div className="product-item" key={title}>
@@ -80,7 +80,7 @@ function ProductCatalog({ data }) {
                   <ul className="product-listing">
                     {
                       data.allMarkdownRemark.edges.map(product => {
-                        const { title, description, price, image, altText, path, ratings } = product.node.frontmatter;
+                        const { title, description, price, image, altText, path } = product.node.frontmatter;
   
                         let dotsDescription = description.length > 220 ? '...' : '';
                         let excerptedDescription = description.slice(0, 220) + dotsDescription;
