@@ -14,6 +14,8 @@ function Header(props) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   let cartItems = []
+  let totalAmount = 0;
+  let totalQuantity = 0;
 
   if (typeof window !== `undefined`) {
     cartItems = JSON.parse(localStorage.getItem('cartList'))
@@ -29,18 +31,18 @@ function Header(props) {
   }
   
   function sumProperty(arr, type) {
-    if (arr !== undefined) {
       return arr.reduce((total, obj) => {
       if (typeof obj[type] === 'string') {
         return total + Number(obj[type]);
       }
       return total + obj[type];
     }, 0);
-    }
   }
   
-  let totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
-  let totalQuantity = sumProperty(cartItems, 'qtty');
+  if (cartItems !== null) {
+    totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
+    totalQuantity = sumProperty(cartItems, 'qtty'); 
+  }
   
   return (
     <header className="header">
