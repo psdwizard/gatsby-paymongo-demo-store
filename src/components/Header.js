@@ -118,7 +118,7 @@ function Header(props) {
                 </h3>
             </div>
             <div className="btn-holder">
-              <Link to="/checkout/{totalAmount}" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
+              <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
               <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
             </div>
           </>
