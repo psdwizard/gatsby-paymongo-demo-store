@@ -56,7 +56,7 @@ const API = () => {
 
       setData({ 
         ...paymentData,
-        paymentAmount: parseInt(res[0].substring(1)),
+        paymentAmount: parseFloat(res[0].substring(1)),
         decimal: res[1].substring(0, res[1].length-1)
       })
 

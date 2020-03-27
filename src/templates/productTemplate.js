@@ -33,7 +33,7 @@ export default function Template({
       price: content.price,
       image: content.image,
       cartPressed: true,
-      totalPrice: parseInt(cartList.qtty) * parseInt(content.price)
+      totalPrice: parseFloat(cartList.qtty) * parseFloat(content.price)
     })
   }
 
@@ -52,8 +52,8 @@ export default function Template({
       var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
       const x = (allEntries.findIndex(x => x.setID === cartList.setID))
       if (x >= 0) {  
-        allEntries[x].qtty = parseInt(allEntries[x].qtty) + parseInt(cartList.qtty);
-        allEntries[x].totalPrice = parseInt(allEntries[x].qtty) * parseInt(allEntries[x].price);
+        allEntries[x].qtty = parseFloat(allEntries[x].qtty) + parseFloat(cartList.qtty);
+        allEntries[x].totalPrice = parseFloat(allEntries[x].qtty) * parseFloat(allEntries[x].price);
       } else {
         allEntries.push(cartList)
       }   
