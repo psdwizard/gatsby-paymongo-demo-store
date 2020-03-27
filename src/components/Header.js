@@ -32,16 +32,19 @@ function Header(props) {
   }
   
   function sumProperty(arr, type) {
-    return arr.reduce((total, obj) => {
+    if (arr !== undefined) {
+      return arr.reduce((total, obj) => {
       if (typeof obj[type] === 'string') {
         return total + Number(obj[type]);
       }
       return total + obj[type];
     }, 0);
+    }
   }
   
-  let totalAmount = ( sumProperty(cartItems, 'price') ).toFixed(2); 
+  let totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
   let totalQuantity = sumProperty(cartItems, 'qtty'); 
+  let totalOverall = 0;
   
   return (
     <header className="header">
@@ -78,7 +81,7 @@ function Header(props) {
               cartItems ? 
                 cartItems.map((item, i) => {
                   let subtotalItem = (parseInt(item.price) * item.qtty).toFixed(2)
-
+                  // totalOverall = parseInt(totalOverall) + parseInt(subtotalItem);
                   return (
                     <li key={i} className="cart-product-item">
                       <div className="image-wrapper">
@@ -89,7 +92,7 @@ function Header(props) {
                       </div>
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
-                      <p className="computation">{item.qtty} x ${item.price} = ${subtotalItem}</p>
+                      <p className="computation">{item.qtty} x ${item.price} = ${item.totalPrice}</p>
                       </div>                  
                     </li>
                   )
@@ -106,10 +109,10 @@ function Header(props) {
               <h3 className="total">
                 Total: {} 
                 ${totalAmount}
-                </h3>
+              </h3>
             </div>
             <div className="btn-holder">
-              <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
+              <Link to="/checkout/{totalAmount}" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
               <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
             </div>
           </>
