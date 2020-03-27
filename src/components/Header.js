@@ -38,7 +38,7 @@ function Header(props) {
   if (typeof window !== `undefined`) {
     cartItems = JSON.parse(localStorage.getItem('cartList'))
     if (cartItems !== null) {
-      totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
+      totalAmount = sumProperty(cartItems, 'totalPrice'); 
       totalQuantity = sumProperty(cartItems, 'qtty'); 
       localStorage.setItem('total', JSON.stringify(totalAmount))
     }
