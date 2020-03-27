@@ -67,9 +67,9 @@ const API = () => {
           setPaymentResult(data);
           // console.log(paymentResult);
           if (data.error === false) {
-            window.location.assign("/success-payment")
+            window.location.assign("/fullstackhq-paymongo/success-payment")
           } else {
-            window.location.assign("`/failed-payment")
+            window.location.assign("/fullstackhq-paymongo/failed-payment")
           }
           console.log(data)
         })
