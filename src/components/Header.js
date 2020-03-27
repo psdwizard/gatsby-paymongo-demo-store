@@ -38,12 +38,21 @@ function Header(props) {
       return total + obj[type];
     }, 0);
   }
-  
-  if (cartItems !== null) {
-    totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
-    totalQuantity = sumProperty(cartItems, 'qtty'); 
-    localStorage.setItem('total', JSON.stringify(totalAmount))
+
+  if (typeof window !== `undefined`) {
+    cartItems = JSON.parse(localStorage.getItem('cartList'))
+    if (cartItems !== null) {
+      totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
+      totalQuantity = sumProperty(cartItems, 'qtty'); 
+      localStorage.setItem('total', JSON.stringify(totalAmount))
+    }
   }
+  
+  // if (cartItems !== null) {
+  //   totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
+  //   totalQuantity = sumProperty(cartItems, 'qtty'); 
+  //   localStorage.setItem('total', JSON.stringify(totalAmount))
+  // }
   
   return (
     <header className="header">
