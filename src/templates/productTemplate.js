@@ -21,7 +21,8 @@ export default function Template({
     price: "",
     qtty: "1",
     image: "",
-    cartPressed: false
+    cartPressed: false,
+    totalPrice: ""
   })
 
   const handleClick = (content) => {
@@ -32,7 +33,8 @@ export default function Template({
       description: content.description,
       price: content.price,
       image: content.image,
-      cartPressed: true
+      cartPressed: true,
+      totalPrice: content.price*content.qtty
     })
   }
 

@@ -26,8 +26,19 @@ function Header(props) {
       return total + obj[type];
     }, 0);
   }
+
+  function getTotal(arr, type) {
+    return arr.reduce((total, obj) => {
+      if (typeof obj[type] === 'string') {
+        return total + cartItems.price * cartItems.qtty;
+      }
+      return total + cartItems.price * cartItems.qtty;
+    }, 0);
+  }
   
-  let totalAmount = ( sumProperty(cartItems, 'price') ).toFixed(2); 
+  // let totalAmount = ( sumProperty(cartItems, 'price')*sumProperty(cartItems, 'qtty')).toFixed(2);  
+  let totalAmount = ( sumProperty(cartItems, 'totalPrice')).toFixed(2);  
+  // let totalAmount = sumProperty(cartItems, 'totalPrice');  
   let totalQuantity = sumProperty(cartItems, 'qtty'); 
   
   return (
