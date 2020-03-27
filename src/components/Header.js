@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
@@ -10,12 +10,25 @@ function Header(props) {
     className
   } = props;
 
+  const [, updateState] = React.useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   let cartItems = []
 
   if (typeof window !== `undefined`) {
     cartItems = JSON.parse(localStorage.getItem('cartList'))
+  }
+
+  const totalPrice = 0
+
+  const removeItem = item => {
+    const selectedItem = cartItems.findIndex(x => x.setID === item.setID)
+      if (selectedItem > -1) {
+        cartItems.splice(selectedItem, 1)
+        localStorage.setItem('cartList', JSON.stringify(cartItems))
+      }
+    forceUpdate()
   }
   
   function sumProperty(arr, type) {
@@ -83,7 +96,7 @@ function Header(props) {
                         <div className="thumbnail-holder">
                           <img src={item.image} className="product-image" alt={item.productName} />
                         </div>
-                        <Button color="link">Remove</Button>
+                        <button onClick={() => removeItem(item)}>Remove</button>
                       </div>
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
