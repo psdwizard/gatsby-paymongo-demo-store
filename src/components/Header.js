@@ -96,7 +96,7 @@ function Header(props) {
                         <div className="thumbnail-holder">
                           <img src={item.image} className="product-image" alt={item.productName} />
                         </div>
-                        <button onClick={() => removeItem(item)}>Remove</button>
+                        <Button color="link" onClick={() => removeItem(item)}>Remove</Button>
                       </div>
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
