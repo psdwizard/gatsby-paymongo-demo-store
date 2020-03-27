@@ -62,7 +62,7 @@ const API = () => {
 
       if (paymentData.paymentAmount !== null) { 
         console.log('my payload', paymentData)
-        axios.post("http://localhost:9000/api/payment", paymentData)
+        axios.post("https://paymongo-api.onrender.com/api/payment", paymentData)
         .then(({ data }) => {
           setPaymentResult(data);
           // console.log(paymentResult);
