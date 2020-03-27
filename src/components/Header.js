@@ -17,10 +17,6 @@ function Header(props) {
   let totalAmount = 0;
   let totalQuantity = 0;
 
-  if (typeof window !== `undefined`) {
-    cartItems = JSON.parse(localStorage.getItem('cartList'))
-  }
-
   const removeItem = item => {
     const selectedItem = cartItems.findIndex(x => x.setID === item.setID)
       if (selectedItem > -1) {
@@ -30,7 +26,7 @@ function Header(props) {
     forceUpdate()
   }
   
-  function sumProperty(arr, type) {
+  const sumProperty = (arr, type) => {
       return arr.reduce((total, obj) => {
       if (typeof obj[type] === 'string') {
         return total + Number(obj[type]);
@@ -38,13 +34,17 @@ function Header(props) {
       return total + obj[type];
     }, 0);
   }
-  
-  if (cartItems !== null) {
-    totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
-    totalQuantity = sumProperty(cartItems, 'qtty'); 
-    localStorage.setItem('total', JSON.stringify(totalAmount))
+
+  if (typeof window !== `undefined`) {
+    cartItems = JSON.parse(localStorage.getItem('cartList'))
+
+    if (cartItems !== null) {
+      totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
+      totalQuantity = sumProperty(cartItems, 'qtty'); 
+      localStorage.setItem('total', JSON.stringify(totalAmount))
+    }
   }
-  
+
   return (
     <header className="header">
       <div className="container">
@@ -109,7 +109,7 @@ function Header(props) {
                 </h3>
             </div>
             <div className="btn-holder">
-              <Link to="/checkout/{totalAmount}" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
+              <Link to="/checkout/" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
               <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
             </div>
           </>

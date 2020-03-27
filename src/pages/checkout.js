@@ -1,12 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
-
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
 import {Helmet} from "react-helmet"
 
 const API = () => {
+  let total = "";
+  let paymentAmount = "";
+  let decimal = "";
+
   const [paymentData, setData] = useState({
     name: "",
     email: "",
@@ -20,10 +23,10 @@ const API = () => {
     expiry: "",
     year: "",
     cvc:  "",
-    paymentAmount: "250",
-    decimal: "10",
+    paymentAmount: null,
+    decimal: "",
     currency: "PHP",
-    description: "This is only a test made by FS",
+    description: "FIRST EVER FE TEST",
     statement_descriptor: "This is only a test"
   })
 
@@ -45,15 +48,38 @@ const API = () => {
     
     localStorage.setItem('myValueInLocalStorage', JSON.stringify(paymentData));
   }
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("https://paymongo-api.onrender.com/api/payment", paymentData)
-    .then(({ data }) => {
-      setPaymentResult(data);
-      console.log(data)
-    })
+    
+    if (typeof window !== `undefined`) {
+      var res = (localStorage.getItem('total').split('.'))
+
+      setData({ 
+        ...paymentData,
+        paymentAmount: parseInt(res[0].substring(1)),
+        decimal: res[1].substring(0, res[1].length-1)
+      })
+
+      if (paymentData.paymentAmount !== null) { 
+        console.log('my payload', paymentData)
+        axios.post("http://localhost:9000/api/payment", paymentData)
+        .then(({ data }) => {
+          setPaymentResult(data);
+          // console.log(paymentResult);
+          if (data.error === false) {
+            window.location.replace(`/success-payment`)
+          } else {
+            window.location.replace(`/failed-payment`) 
+          }
+          console.log(data)
+        })
+      }
+    }    
   }
+
+  // useEffect(() => {
+  //   // console.log(paymentResult)
+  // }, [paymentResult])
 
   return (
     <div className="sass-ready">
@@ -68,7 +94,7 @@ const API = () => {
           <div className="content-wrapper">
             <div className="form-wrapper">
               <form onSubmit={handleSubmit} >
-
+                {}
                 <div className="form-separator">
                   <h2 className="separator-title">Contact Information</h2>
                 </div>
@@ -91,7 +117,6 @@ const API = () => {
                   <input name="country" type="text" placeholder="Country" onChange={handleData} />
                   <input name="postal_code" type="text" placeholder="ZIP Code" onChange={handleData} />
                 </div>
-
                 <div className="form-separator">
                   <h2 className="separator-title">Payment Method</h2>
                 </div>
@@ -103,21 +128,14 @@ const API = () => {
                   <input name="year" type="text" placeholder="Expiry Year" onChange={handleData} /> 
                   <input name="cvc" type="text" placeholder="CVC" onChange={handleData} /> 
                 </div>
-                <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY {paymentData.currency} {paymentData.paymentAmount}.{paymentData.decimal}</button>
+                <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
               </form>
             </div>
           </div>
         </div>
-
-        {
-          paymentResult.error ? window.location.replace(`/failed-payment`) : 
-            paymentResult.data.type ? window.location.replace(`/success-payment`) : 
-              paymentResult.data.code ? "there could be an error in one of ur fields" : ''
-        }
       </main>
       <Footer />
     </div>
   )
 }
-
 export default API
