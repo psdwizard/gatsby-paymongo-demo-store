@@ -133,6 +133,10 @@
       &:hover {
         background-color: $black;
       }
+
+      &:focus {
+        outline: none;
+      }
   
       &.react-tabs__tab--selected {
         background-color: $black;

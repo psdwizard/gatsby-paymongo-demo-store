@@ -52,6 +52,28 @@
   }
 }
 
+@include respond-to(lg-up) {
+  .section-swiper-banner {
+    .swiper-button-next,
+    .swiper-button-prev {
+      opacity: 0!important;
+
+      transition: .2s ease-in;
+      pointer-events: none;
+    }
+
+    &:hover {
+      .swiper-button-next,
+      .swiper-button-prev {
+        opacity: 1!important;
+
+        transition: .2s ease-in;
+        pointer-events: initial;
+      }
+    }
+  }
+}
+
 @include respond-to(md-down) {
   .section-swiper-banner {
     .banner-content {
@@ -77,14 +99,15 @@
 
 @include respond-to(sm-down) {
   .swiper-button-next, 
-  .swiper-container-rtl,
   .swiper-button-prev {
-    display: none!important;
+    &:after {
+      font-size: 28px;
+    }
   }
 
   .section-swiper-banner {
     .banner-content {
-      padding: 50px 0;
+      padding: 50px 26px;
     }
 
     h1 {

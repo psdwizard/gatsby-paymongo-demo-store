@@ -40,28 +40,28 @@ const Footer = () => {
             <h2 className="title">SOCIAL</h2>
             <ul className="list-holder">
               <li className="list-item">
-                <Link to="/" className="link">
+                <a href="/" target="blank" className="link">
                   <FontAwesomeIcon icon={faInstagram} className="icon" />
                   Instagram
-                </Link>
+                </a>
               </li>
               <li className="list-item">
-                <Link to="/" className="link">
+                <a href="/" target="blank" className="link">
                  <FontAwesomeIcon icon={faFacebookSquare} className="icon" />
                   Facebook
-                 </Link>
+                 </a>
                 </li>
               <li className="list-item">
-                <Link to="/" className="link">
+                <a href="/" target="blank" className="link">
                   <FontAwesomeIcon icon={faTwitter} className="icon" />
                   Twitter
-                </Link>
+                </a>
               </li>
               <li className="list-item">
-                <Link to="/" className="link">
+                <a href="/" target="blank" className="link">
                   <FontAwesomeIcon icon={faPinterest} className="icon" />
                   Pinterest
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
