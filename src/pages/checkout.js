@@ -121,12 +121,26 @@ const API = () => {
                   <h2 className="separator-title">Payment Method</h2>
                 </div>
                 <div className="card-no-wrapper">
-                  <input name="number" type="text" className="w-100s" placeholder="Number" onChange={handleData} />  
+                  <input name="number" type="text" className="w-100s" maxLength={16} placeholder="Number" onChange={handleData} />  
                 </div>
                 <div className="card-info-wrapper">
-                  <input name="expiry" type="text"placeholder="Expiry Month" onChange={handleData} /> 
-                  <input name="year" type="text" placeholder="Expiry Year" onChange={handleData} /> 
-                  <input name="cvc" type="text" placeholder="CVC" onChange={handleData} /> 
+                  {/* <input name="expiry" type="text" placeholder="Expiry Month" onChange={handleData} />  */}
+                  <select name="expiry" placeholder="Expiry Month" onChange={handleData} >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                  <input name="year" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" placeholder="Expiry Year" maxLength={4} onChange={handleData} /> 
+                  <input name="cvc" type="text" placeholder="CVC" maxLength={3} onChange={handleData} /> 
                 </div>
                 <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
               </form>

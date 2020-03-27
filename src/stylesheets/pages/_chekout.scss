@@ -32,8 +32,14 @@
   .card-info-wrapper {
     display: flex;
 
-    input {
+    input,
+    select {
       flex: 0 0 30%;
+    }
+
+    select {
+      padding: 0 5px;
+      border-color: $black;
     }
   }
 
@@ -51,7 +57,8 @@
     justify-content: space-between;
     margin-bottom: 10px;
 
-    input {
+    input,
+    select {
       flex: 0 0 28%;
 
       &:not(:last-child) {
@@ -143,7 +150,8 @@
     // }
 
     .card-info-wrapper {
-      input {
+      input,
+      select {
         max-width: 30%;
       }
     }
