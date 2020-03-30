@@ -17,7 +17,9 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: description, label: Description, widget: "string" }
       - { name: price, label: Price, widget: "string" }
-      - { name: image, label: Image, widget: "image" }
+      - { name: image1024, label: Image Thumnail 1024, widget: "image" }
+      - { name: image150, label: Image Thumbnail 150, widget: "image" }
+      - { name: image300, label: Image Thumbnail 300, widget: "image" }
       - { name: altText, label: Alt Text, widget: "string" }
       - { name: weight, label: Weight, widget: "string" }
       - { name: dimensions, label: Dimensions, widget: "string" }
