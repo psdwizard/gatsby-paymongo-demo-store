@@ -54,14 +54,14 @@ function ProductCatalog({ data }) {
                   <ul className="product-listing">
                     {
                       data.allMarkdownRemark.edges.map(product => {
-                        const { title, price, image, altText, path } = product.node.frontmatter;
+                        const { title, price, image300, altText, path } = product.node.frontmatter;
 
                         return (
                           <div className="product-item" key={title}>
                             <div className="image-holder">
                               <Link to={path}>
                                 <div className="thumbnail">
-                                  <img src={image} className="image-thumbnail" alt={altText} />
+                                  <img src={image300} className="image-thumbnail" alt={altText} />
                                 </div>
                                 <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
                               </Link>
@@ -82,7 +82,7 @@ function ProductCatalog({ data }) {
                   <ul className="product-listing">
                     {
                       data.allMarkdownRemark.edges.map(product => {
-                        const { title, description, price, image, altText, path } = product.node.frontmatter;
+                        const { title, description, price, image150, altText, path } = product.node.frontmatter;
   
                         let dotsDescription = description.length > 210 ? '...' : '';
                         let excerptedDescription = description.slice(0, 210) + dotsDescription;
@@ -92,7 +92,7 @@ function ProductCatalog({ data }) {
                             <div className="image-holder">
                               <Link to={path}>
                                 <div className="thumbnail">
-                                  <img src={image} className="image-thumbnail" alt={altText} />
+                                  <img src={image150} className="image-thumbnail" alt={altText} />
                                 </div>
                               </Link>
                             </div>
@@ -133,7 +133,8 @@ export const ProductQuery = graphql`
             title
             description
             price
-            image
+            image150
+            image300
             altText
             weight
             dimensions

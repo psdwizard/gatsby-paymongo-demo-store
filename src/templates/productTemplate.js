@@ -78,7 +78,7 @@ export default function Template({
           <div className="section-product">
             <div className="product-wrapper">
               <div className="image-holder">
-                <img className="product-image" src={frontmatter.image} alt={frontmatter.altText}/>
+                <img className="product-image" src={frontmatter.image1024} alt={frontmatter.altText}/>
               </div>
               <div className="details-holder">
                 <h1 className="name">{frontmatter.title}</h1>
@@ -160,7 +160,7 @@ export const pageQuery = graphql`
         title
         description
         price
-        image
+        image1024
         altText
         weight
         dimensions
