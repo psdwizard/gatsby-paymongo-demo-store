@@ -115,13 +115,13 @@ const API = () => {
                 </div>
                 <div className="input-group-wrapper">
                   <input name="country" type="text" placeholder="Country" onChange={handleData} />
-                  <input name="postal_code" type="text" placeholder="ZIP Code" onChange={handleData} />
+                  <input name="postal_code" type="number" placeholder="ZIP Code" onChange={handleData} />
                 </div>
                 <div className="form-separator">
                   <h2 className="separator-title">Payment Method</h2>
                 </div>
                 <div className="card-no-wrapper">
-                  <input name="number" type="text" className="w-100s" maxLength={16} placeholder="Number" onChange={handleData} />  
+                  <input name="number" type="number" className="w-100s" maxLength={16} placeholder="Number" onChange={handleData} />  
                 </div>
                 <div className="card-info-wrapper">
                   {/* <input name="expiry" type="text" placeholder="Expiry Month" onChange={handleData} />  */}
@@ -139,7 +139,7 @@ const API = () => {
                     <option>11</option>
                     <option>12</option>
                   </select>
-                  <input name="year" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" placeholder="Expiry Year" maxLength={4} onChange={handleData} /> 
+                  <input name="year" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" placeholder="Expiry Year" maxLength={4} onChange={handleData} /> 
                   <input name="cvc" type="number" placeholder="CVC" maxLength={3} onChange={handleData} /> 
                 </div>
                 <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>

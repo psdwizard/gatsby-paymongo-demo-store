@@ -15,7 +15,7 @@ a {
   text-decoration: none!important;
 
   &:hover {
-    color: $blue;
+    color: white;
   }
 }
 
@@ -64,6 +64,10 @@ select,
 button,
 textarea {
   outline: none;
+}
+
+select {
+  background: none;
 }
 
 .swiper-button-next, .swiper-button-prev {

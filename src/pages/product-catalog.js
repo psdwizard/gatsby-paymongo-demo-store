@@ -68,7 +68,7 @@ function ProductCatalog({ data }) {
                             </div>
                             <div className="text-holder">
                               <h2 className="title">{title}</h2>
-                              <p className="price">PHP{price}</p>
+                              <p className="price">PHP {price}</p>
                             </div>
                           </div>
                         )
@@ -84,8 +84,8 @@ function ProductCatalog({ data }) {
                       data.allMarkdownRemark.edges.map(product => {
                         const { title, description, price, image, altText, path } = product.node.frontmatter;
   
-                        let dotsDescription = description.length > 220 ? '...' : '';
-                        let excerptedDescription = description.slice(0, 220) + dotsDescription;
+                        let dotsDescription = description.length > 210 ? '...' : '';
+                        let excerptedDescription = description.slice(0, 210) + dotsDescription;
 
                         return (
                           <div className="product-item" key={title}>
@@ -99,7 +99,7 @@ function ProductCatalog({ data }) {
                             <div className="text-holder">
                               <h2 className="title">{title}</h2>
                               <p className="description">{excerptedDescription}</p>
-                              <p className="price">PHP{price}</p>
+                              <p className="price">PHP {price}</p>
                               <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
                             </div>
                           </div>

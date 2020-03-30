@@ -88,7 +88,7 @@ function Header(props) {
                       </div>
                       <div className="text-wrapper">
                       <h4 className="product-name">{item.productName}</h4>
-                      <p className="computation">{item.qtty} x PHP{item.price} = PHP{item.totalPrice}</p>
+                      <p className="computation">{item.qtty} x PHP {item.price} = PHP {(item.totalPrice).toFixed(2)}</p>
                       </div>                  
                     </li>
                   )
@@ -104,7 +104,7 @@ function Header(props) {
             <div className="total-holder">
               <h3 className="total">
                 Total: {} 
-                PHP{} {totalAmount}
+                PHP {} {totalAmount}
                 </h3>
             </div>
             <div className="btn-holder">

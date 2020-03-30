@@ -47,13 +47,6 @@
     padding: 6px 11px;
     border: none;
     border-radius: 0;
-
-    &.active,
-    &:hover {
-      color: $white;
-
-      background: $black;
-    }
   }
 
   .tab-content {
@@ -85,20 +78,6 @@
     .product-item {
       margin-bottom: 20px;
       width: 30%;
-
-      &:hover {
-        .btn-swipe-black {
-          opacity: 1;
-          
-          transition: .2s ease-in;
-          pointer-events: initial;
-        }
-
-        .image-thumbnail {
-          transform: scale(.9);
-          transition: all .5s ease-in-out;
-        }
-      }
     }
 
     .image-thumbnail {
@@ -154,13 +133,6 @@
       justify-content: center;
       display: flex;
       background: $light-gray;
-
-      &:hover {
-        .image-thumbnail {
-          transform: scale(0.9);
-          transition: all .5s ease-in-out;
-        }
-      }
     }
 
     .image-thumbnail {
@@ -188,6 +160,48 @@
   }
 }
 
+@include respond-to (lg-up) {
+  .product-catalog {
+    .nav-link {
+      &.active,
+      &:hover {
+        color: $white;
+  
+        background: $black;
+      }
+    }
+  
+    .grid {
+      .product-item {
+        &:hover {
+          .btn-swipe-black {
+            opacity: 1;
+            
+            transition: .2s ease-in;
+            pointer-events: initial;
+          }
+  
+          .image-thumbnail {
+            transform: scale(.9);
+            transition: all .5s ease-in-out;
+          }
+        }
+      }
+    }
+  
+    .list {
+      .thumbnail {
+        &:hover {
+          .image-thumbnail {
+            transform: scale(0.9);
+            transition: all .5s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
 @include respond-to(md-up) {
   .product-catalog {
     .grid {
@@ -204,6 +218,12 @@
 
 @include respond-to(lg-down) {
   .product-catalog {
+    .grid {
+      .thumbnail {
+        height: 255px;
+      }
+    }
+
     .list {
       .image-holder {
         width: 27%;
@@ -215,7 +235,6 @@
     }
   }
 }
-
 
 @include respond-to(md) {
   .product-catalog {
@@ -230,17 +249,6 @@
     }
   }
 }
-
-@include respond-to(lg-down) {
-  .product-catalog {
-    .grid {
-      .thumbnail {
-        height: 255px;
-      }
-    }
-  }
-}
-
 
 @include respond-to(sm-down) {
   .product-catalog {
