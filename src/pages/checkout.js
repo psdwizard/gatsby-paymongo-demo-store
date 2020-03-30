@@ -121,7 +121,7 @@ const API = () => {
                   <h2 className="separator-title">Payment Method</h2>
                 </div>
                 <div className="card-no-wrapper">
-                  <input name="number" type="number" className="w-100s" maxLength={16} placeholder="Number" onChange={handleData} />  
+                  <input name="number" type="number" className="w-100s" min="0" max="9999999999999999" placeholder="Number" onChange={handleData} onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,16)}} />  
                 </div>
                 <div className="card-info-wrapper">
                   {/* <input name="expiry" type="text" placeholder="Expiry Month" onChange={handleData} />  */}
@@ -139,8 +139,8 @@ const API = () => {
                     <option>11</option>
                     <option>12</option>
                   </select>
-                  <input name="year" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="number" placeholder="Expiry Year" maxLength={4} onChange={handleData} /> 
-                  <input name="cvc" type="number" placeholder="CVC" maxLength={3} onChange={handleData} /> 
+                  <input name="year" type="number" onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} placeholder="Expiry Year" min="0" max="9999" onChange={handleData} /> 
+                  <input name="cvc" onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)}} type="number" placeholder="CVC" min="0" max="999" onChange={handleData} /> 
                 </div>
                 <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
               </form>
