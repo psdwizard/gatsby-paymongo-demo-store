@@ -70,7 +70,8 @@ export default function Template({
   return (
     <div>
       <Helmet>
-        <title>Fullstack HQ - {frontmatter.title}</title>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content="" />
       </Helmet>
       <Header />
       <main className="product-details">
