@@ -59,14 +59,16 @@ function ProductCatalog({ data }) {
                         return (
                           <div className="product-item" key={title}>
                             <div className="image-holder">
-                              <div className="thumbnail">
-                                <img src={image} className="image-thumbnail" alt={altText} />
-                              </div>
-                              <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
+                              <Link to={path}>
+                                <div className="thumbnail">
+                                  <img src={image} className="image-thumbnail" alt={altText} />
+                                </div>
+                                <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
+                              </Link>
                             </div>
                             <div className="text-holder">
                               <h2 className="title">{title}</h2>
-                              <p className="price">${price}</p>
+                              <p className="price">PHP{price}</p>
                             </div>
                           </div>
                         )
@@ -88,14 +90,16 @@ function ProductCatalog({ data }) {
                         return (
                           <div className="product-item" key={title}>
                             <div className="image-holder">
-                              <div className="thumbnail">
-                                <img src={image} className="image-thumbnail" alt={altText} />
-                              </div>
+                              <Link to={path}>
+                                <div className="thumbnail">
+                                  <img src={image} className="image-thumbnail" alt={altText} />
+                                </div>
+                              </Link>
                             </div>
                             <div className="text-holder">
                               <h2 className="title">{title}</h2>
                               <p className="description">{excerptedDescription}</p>
-                              <p className="price">${price}</p>
+                              <p className="price">PHP{price}</p>
                               <Link to={path} className="btn-swipe-black hover-swipe-right">View Details</Link>
                             </div>
                           </div>

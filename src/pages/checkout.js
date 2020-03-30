@@ -140,7 +140,7 @@ const API = () => {
                     <option>12</option>
                   </select>
                   <input name="year" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" type="text" placeholder="Expiry Year" maxLength={4} onChange={handleData} /> 
-                  <input name="cvc" type="text" placeholder="CVC" maxLength={3} onChange={handleData} /> 
+                  <input name="cvc" type="number" placeholder="CVC" maxLength={3} onChange={handleData} /> 
                 </div>
                 <button type="submit" className="btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
               </form>
