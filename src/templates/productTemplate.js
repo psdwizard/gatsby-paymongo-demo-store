@@ -19,7 +19,7 @@ export default function Template({
     description: "",
     price: "",
     qtty: "1",
-    image: "",
+    image1024: "",
     cartPressed: false,
     totalPrice: null
   })
@@ -31,7 +31,7 @@ export default function Template({
       productName: content.title,
       description: content.description,
       price: content.price,
-      image: content.image,
+      image1024: content.image1024,
       cartPressed: true,
       totalPrice: parseFloat(cartList.qtty) * parseFloat(content.price)
     })

@@ -82,7 +82,7 @@ function Header(props) {
                     <li key={i} className="cart-product-item">
                       <div className="image-wrapper">
                         <div className="thumbnail-holder">
-                          <img src={item.image} className="product-image" alt={item.productName} />
+                          <img src={item.image1024} className="product-image" alt={item.productName} />
                         </div>
                         <Button color="link" onClick={() => removeItem(item)}>Remove</Button>
                       </div>
