@@ -52,7 +52,7 @@ function Header(props) {
           <ul className="link-listing">
             <li className="link-item">
               {
-                checkout ? <Link to="/product-catalog" className="link">RETURN TO SHOPPING</Link> : <Link to="/product-catalog" className="link">Products</Link>
+                checkout ? <Link to="/products" className="link">RETURN TO SHOPPING</Link> : <Link to="/products" className="link">Products</Link>
               }
             </li>
           </ul>
