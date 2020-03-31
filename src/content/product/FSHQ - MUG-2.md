@@ -1,5 +1,5 @@
 ---
-setID: 3
+setID: 2
 path: /product/fshq-mug2
 date: 2017-11-05
 title: FSHQ - MUG 2
