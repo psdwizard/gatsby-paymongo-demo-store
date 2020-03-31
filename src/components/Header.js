@@ -69,7 +69,14 @@ function Header(props) {
             <li className="icon-item" onClick={toggle}>
               <div className="icon-link">
                 <FontAwesomeIcon icon={faShoppingBag} className="icon icon-shopping-bag" />
-                <span className="cart-quantity">{totalQuantity}</span>
+                 {
+                   cartItems ? 
+                    <span className="cart-quantity">
+                      {totalQuantity}
+                    </span>
+                  :
+                  ''
+                  }
               </div>
             </li>
           </ul>

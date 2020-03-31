@@ -143,6 +143,58 @@ export default function Template({
               </TabPanel>
             </Tabs>
           </div>
+          
+          <div className="section-related-products product-catalog">
+            <h2>You may also like</h2>
+            <div className="grid">
+              <div className="product-listing">
+                <div className="product-item">
+                  <div className="image-holder">
+                    <Link to="/product/fshq-poster-happy">
+                      <div className="thumbnail">
+                        <img src="https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQPoster-Happy-300.png" className="image-thumbnail" alt=" FSHQ Poster - Happy" />
+                      </div>
+                      <Link to="/product/fshq-poster-happy" className="btn-swipe-black hover-swipe-right">View Details</Link>
+                    </Link>
+                  </div>
+                  <div className="text-holder">
+                    <h2 className="title">FSHQ Poster - Helpful</h2>
+                    <p className="price">PHP 400</p>
+                  </div>
+                </div>
+
+                <div className="product-item">
+                  <div className="image-holder">
+                    <Link to="/product/fshq-poster-honest">
+                      <div className="thumbnail">
+                        <img src="https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQPoster-Honest-300.png" className="image-thumbnail" alt=" FSHQ Poster - Honestl" />
+                      </div>
+                      <Link to="/product/fshq-poster-honest" className="btn-swipe-black hover-swipe-right">View Details</Link>
+                    </Link>
+                  </div>
+                  <div className="text-holder">
+                    <h2 className="title">FSHQ Poster - Honest</h2>
+                    <p className="price">PHP 400</p>
+                  </div>
+                </div>
+
+                <div className="product-item">
+                  <div className="image-holder">
+                    <Link to="/product/fshq-poster-hungry">
+                      <div className="thumbnail">
+                        <img src="https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQPoster-Hungry-300.png" className="image-thumbnail" alt=" FSHQ Poster - Helpful" />
+                      </div>
+                      <Link to="/product/fshq-poster-hungry" className="btn-swipe-black hover-swipe-right">View Details</Link>
+                    </Link>
+                  </div>
+                  <div className="text-holder">
+                    <h2 className="title">FSHQ Poster - Hungry</h2>
+                    <p className="price">PHP 400</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
      </main>
      <Footer />

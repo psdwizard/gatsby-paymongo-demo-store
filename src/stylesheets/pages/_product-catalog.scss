@@ -1,4 +1,4 @@
-.products {
+.product-catalog {
   .section-catalog {
     margin: 60px 0;
   }
@@ -161,7 +161,7 @@
 }
 
 @include respond-to (lg-up) {
-  .products {
+  .product-catalog {
     .nav-link {
       &.active,
       &:hover {
@@ -203,7 +203,7 @@
 }
 
 @include respond-to(md-up) {
-  .products {
+  .product-catalog {
     .grid {
       .product-item {
         width: 31.33%;
@@ -217,7 +217,7 @@
 }
 
 @include respond-to(lg-down) {
-  .products {
+  .product-catalog {
     .grid {
       .thumbnail {
         height: 255px;
@@ -237,7 +237,7 @@
 }
 
 @include respond-to(md) {
-  .products {
+  .product-catalog {
     .list {
       .image-holder {
         width: 38%;
@@ -251,7 +251,7 @@
 }
 
 @include respond-to(sm-down) {
-  .products {
+  .product-catalog {
     .grid {
       .product-item {
         width: 48.5%;
@@ -287,7 +287,7 @@
 }
 
 @include respond-to(xs) {
-  .products {
+  .product-catalog {
     .grid {
       .product-item {
         width: 100%;
