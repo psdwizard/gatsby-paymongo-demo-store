@@ -6,7 +6,8 @@ import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 function Header(props) {
   const {
-    className
+    className,
+    checkout
   } = props;
 
   const [, updateState] = React.useState();
@@ -50,7 +51,9 @@ function Header(props) {
         <nav>
           <ul className="link-listing">
             <li className="link-item">
-              <Link to="/products" className="link">Products</Link>
+              {
+                checkout ? <Link to="/product-catalog" className="link">RETURN TO SHOPPING</Link> : <Link to="/product-catalog" className="link">Products</Link>
+              }
             </li>
           </ul>
 
@@ -60,7 +63,9 @@ function Header(props) {
             </Link>
           </div>
 
-          <ul className="icon-listing">
+          {
+            checkout ? '' : 
+            <ul className="icon-listing">
             <li className="icon-item" onClick={toggle}>
               <div className="icon-link">
                 <FontAwesomeIcon icon={faShoppingBag} className="icon icon-shopping-bag" />
@@ -68,6 +73,7 @@ function Header(props) {
               </div>
             </li>
           </ul>
+          }
         </nav>
       </div>
 

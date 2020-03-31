@@ -1,199 +1,178 @@
 .checkout-page {
-  .content-wrapper {
+
+  .checkout-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 35px;
+  }
+
+  .customer-details {
+    flex: 0 0 55%;
+  }
+
+  .detail-block {
+    margin-bottom: 40px;
+  }
+
+  .segment-title {
+    display: flex;
+    align-items: center;
+
+    .title {
+      margin: 0;
+
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  .round-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+
+    color: $white;
+
+    background: $black;
+    border-radius: 50%;
+
+    &.selected {
+      color: $black;
+
+      background: $white;
+      border: 2px solid $black;
+    }
+  }
+
+  .details-list {
+    padding-inline-start: 45px;
+    list-style-type: none;
+
+    .detail-title {
+      margin-bottom: 10px;
+
+      font-weight: bold;
+    }
+  }
+
+  .checkout-form {
+    margin-right: 45px;
   }
 
   .form-wrapper {
-    flex: 0 0 100%;
-    margin-top: 25px;
-  }
+    margin-top: 15px;
+    margin-left: 45px;
+    width: 100%;
 
-  .form-separator {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    margin: 15px 0;
-
-    background: $gainsboro;
-
-    .separator-title {
-      margin-bottom: 0;
-    }
-  }
-
-  .input-group-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .card-info-wrapper {
-    display: flex;
-
-    input,
-    select {
-      flex: 0 0 30%;
+    .card-no-wrapper {
+      input {
+        padding: 10px;
+        width: 100%;
+      }
     }
 
-    select {
-      padding: 0 5px;
-      border-color: $black;
-    }
-  }
+    .card-info-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
 
-  .card-no-wrapper {
-    display: flex;
-    margin-bottom: 10px;
-
-    input {
-      flex: 100%;
-    }
-  }
-
-  .card-info-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-
-    input,
-    select {
-      flex: 0 0 28%;
-
-      &:not(:last-child) {
-        margin-right: 10px;
+      select,
+      input {
+        flex: 0 0 30%;
+        padding: 10px;
       }
     }
   }
 
-  .btn-swipe-black {
-    width: 100%;
+  .cart-details {
+    flex: 0 0 40%;
+    padding: 15px;
+    height: 100%;
+
+    background: #F6F6F6;
   }
 
-  input {
-    flex: 0 0 48%;
-    padding: 10px;
+  .cart-detail-title {
+    padding-bottom: 5px;
+    margin: 0;
 
     font-size: 18px;
-
-    border: 1px solid;
+    font-weight: bold;
   }
 
-  .order-summary {
+  .border-bottom-black {
+    border-bottom: 1px solid #D5D5D5;
+  }
+
+  .cart-product-item {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 0 0 30%;
-    padding: 15px;
-    margin-top: 40px;
-    
-    background: $gainsboro;
-
-    .summary-banner {
-      padding: 10px;
-      
-      color: $white;
-      
-      background: $black;
-    }
-
-    .cart-summary {
-      padding-bottom: 15px;
-
-      border-bottom: 1px solid $black;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-    }
+    padding: 16px 0;
 
     .product-image {
-      flex: 0 0 20%;
-      width: 60px;
-      height: 60px;
-
-      background: $black;
+      margin-right: 10px;
+      width: 50px;
+      height: 50px;
     }
 
     .product-name {
-      margin-bottom: 10px;
+      font-size: 16px;
+      margin-bottom: 0;
     }
 
-    .prod-data-wrapper {
-      display: flex;
-      flex-direction: column;
-      flex: 0 0 75%;
+    .computation {
+      margin: 0;
+
+      font-size: 14px;
+      font-weight: 400;
     }
-
-    .monetary-wrapper {
-      display: flex;
-      justify-content: flex-start;
-
-      .product-qtty {
-        margin-right: 10px;
-      }
-    }
-
-    .subtotal-amount {
-      font-weight: 600;
-    }
-  }
-}
-
-@include respond-to(lg-down) {
-  .checkout-page {
-    // .form-wrapper {
-    //   max-width: 60%;
-    // }
-
-    .card-info-wrapper {
-      input,
-      select {
-        max-width: 30%;
-      }
-    }
-
-    // .order-summary {
-    //   flex: 0 0 35%;
-    // }
   }
 }
 
 @include respond-to(md-down) {
   .checkout-page {
-    .form-wrapper {
-      flex: 0 0 100%;
-      order: 2;
-      max-width: 100%;
+    .cart-details {
+      display: none;
     }
 
-    .order-summary {
+    .form-wrapper {
+      margin-left: 0;
+    }
+
+    .customer-details {
       flex: 0 0 100%;
-      order: 1;
+    }
+
+    .checkout-form {
+      margin-right: 0;
     }
   }
 }
 
 @include respond-to(xs) {
   .checkout-page {
-    .input-group-wrapper {
-      flex-wrap: wrap;
+    .form-wrapper {
+      .card-info-wrapper {
+        flex-wrap: wrap;
+        
+        select {
+          flex: 0 0 100%;
+          padding: 10px;
+          margin-bottom: 1rem;
+        }
 
-      input {
-        flex: 0 0 100%;
-        width: 100%;
-        margin-bottom: 10px;
+        input {
+          flex: 0 0 48%;
+        }
       }
     }
   }
-}
 
-.cart-product-item {
-  .product-image {
-    max-width: 120px;
-    max-height: 120px;
+  .sass-ready {
+    header .link {
+      font-size: 8px;
+    }
   }
 }
