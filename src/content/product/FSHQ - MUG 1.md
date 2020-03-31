@@ -1,6 +1,6 @@
 ---
 setID: 2
-path: /product/FSHQ-MUG1
+path: /product/fshq-mug1
 date: 2017-11-05
 title: FSHQ - MUG 1
 description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, ligula non euismod posuere, ligula enim placerat purus, pharetra ultrices metus est in mi. Sed malesuada elementum odio et feugiat. Donec in neque neque. Proin gravida vehicula ultricies. Pellentesque lacinia fermentum faucibus. Aliquam dapibus mauris sed diam viverra, consequat auctor.

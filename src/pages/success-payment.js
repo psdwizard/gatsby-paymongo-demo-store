@@ -30,7 +30,7 @@ const successPayment = () => {
           <div className="text-wrapper">
             <h2>Payment Successful</h2>
             <p>Thanks for your purchase!</p>
-            <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
+            <Link to="/products" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
           </div>
         </div>
       </main>

@@ -26,7 +26,7 @@ function ProductCatalog({ data }) {
         <meta name="description" content="" />
       </Helmet>
       <Header />
-      <main className="product-catalog">
+      <main className="products">
         <Banner content={{ title: 'All Products' }} />
         <div className="section-catalog">
           <div className="container">

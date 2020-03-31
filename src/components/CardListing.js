@@ -9,8 +9,8 @@ function cardListing ({card}) {
           <div className="custom-card-listing">
           {card.map((item, i) => {
             let description = item.description;
-            let dotsDescription = description.length > 60 ? '...' : '';
-            let excerptedDescription = description.slice(0, 60) + dotsDescription;
+            let dotsDescription = description.length > 80 ? '...' : '';
+            let excerptedDescription = description.slice(0, 80) + dotsDescription;
 
             return (
               <div className="custom-card-item" key={i}>

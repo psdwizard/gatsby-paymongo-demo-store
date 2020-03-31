@@ -7,18 +7,18 @@ import {Helmet} from "react-helmet"
 
 const swiperData = [
   {
-    title: "Lorem ipsum dolor sit amet",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    title: "The Universal Commerce Suite Demo Store",
+    description: "This is a React JS demo store with PayMongo API integration to process payments.",
     buttonText: "Shop Now",
-    buttonLink: "/product-catalog",
+    buttonLink: "/products",
     image: require("../images/../assets/images/bootstrap-illustration-3.png"),
     imageName: "image",
   },
   {
-    title: "Lorem ipsum dolor sit amet",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
+    title: "The Universal Commerce Suite Demo Store",
+    description: "This is a React JS demo store with PayMongo API integration to process payments.",
     buttonText: "Shop Now",
-    buttonLink: "/product-catalog",
+    buttonLink: "/products",
     image: require("../images/../assets/images/bootstrap-illustration-12.png"),
     imageName: "image",
   },
@@ -26,23 +26,23 @@ const swiperData = [
 
 const cardData = [
   {
-    title: 'Mascots',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-    url: '/product-catalog',
+    title: 'Clothing',
+    description: 'We have an assortment of great clothes including hoodies, t-shirts and more.',
+    url: '/products',
     image: require("../images/../assets/images/bootstrap-illustration-12.png"),
     imageName: 'mascot image'
   },
   {
-    title: 'Mascots',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-    url: '/product-catalog',
+    title: 'Accessories',
+    description: 'We got the purrfect categories and sets of accessories for you.',
+    url: '/products',
     image: require("../images/../assets/images/bootstrap-illustration-12.png"),
     imageName: 'mascot image'
   },
   {
-    title: 'Mascots',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod',
-    url: '/product-catalog',
+    title: 'Home Decor',
+    description: 'Kitty up your home with these awesome cat mugs, posters and more!',
+    url: '/products',
     image: require("../images/../assets/images/bootstrap-illustration-3.png"),
     imageName: 'mascot image'
   }

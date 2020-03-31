@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare, faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons"
+import { faFacebookSquare, faInstagram, faTwitter, faDribbble } from "@fortawesome/free-brands-svg-icons"
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {
@@ -22,45 +22,48 @@ const Footer = () => {
           <div className="links-holder">
             <h2 className="title">CATEGORIES</h2>
             <ul className="list-holder">
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
+              <li className="list-item"><Link to="/products" className="link">Clothing</Link></li>
+              <li className="list-item"><Link to="/products" className="link">Accessories</Link></li>
+              <li className="list-item"><Link to="/products" className="link">Home Decor</Link></li>
             </ul>
           </div>
           <div className="links-holder">
             <h2 className="title">INFORMATION</h2>
             <ul className="list-holder">
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
-              <li className="list-item"><Link to="/" className="link">Lorem ipsum</Link></li>
+              <li className="list-item"><Link to="/#" className="link">About</Link></li>
+              <li className="list-item"><Link to="/#" className="link">Shipping & Returns</Link></li>
+              <li className="list-item"><Link to="/#" className="link">Privacy Policy</Link></li>
+              <li className="list-item"><Link to="/#" className="link">Terms & Conditions</Link></li>
             </ul>
           </div>
           <div className="links-holder">
             <h2 className="title">SOCIAL</h2>
             <ul className="list-holder">
+            <li className="list-item">
+                <a href="https://facebook.com/fullstackhq/" target="blank" className="link">
+                 <FontAwesomeIcon icon={faFacebookSquare} className="icon" />
+                  Facebook
+                 </a>
+              </li>
+
               <li className="list-item">
-                <a href="/" target="blank" className="link">
+                <a href="https://dribbble.com/fullstackhq" target="blank" className="link">
+                  <FontAwesomeIcon icon={faDribbble} className="icon" />
+                  Dribbble
+                </a>
+              </li>
+
+              <li className="list-item">
+                <a href="https://www.instagram.com/fullstackhq/" target="blank" className="link">
                   <FontAwesomeIcon icon={faInstagram} className="icon" />
                   Instagram
                 </a>
               </li>
+              
               <li className="list-item">
-                <a href="/" target="blank" className="link">
-                 <FontAwesomeIcon icon={faFacebookSquare} className="icon" />
-                  Facebook
-                 </a>
-                </li>
-              <li className="list-item">
-                <a href="/" target="blank" className="link">
+                <a href="https://twitter.com/fullstackhq" target="blank" className="link">
                   <FontAwesomeIcon icon={faTwitter} className="icon" />
                   Twitter
-                </a>
-              </li>
-              <li className="list-item">
-                <a href="/" target="blank" className="link">
-                  <FontAwesomeIcon icon={faPinterest} className="icon" />
-                  Pinterest
                 </a>
               </li>
             </ul>

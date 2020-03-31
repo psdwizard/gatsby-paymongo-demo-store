@@ -50,7 +50,7 @@ function Header(props) {
         <nav>
           <ul className="link-listing">
             <li className="link-item">
-              <Link to="/product-catalog" className="link">Products</Link>
+              <Link to="/products" className="link">Products</Link>
             </li>
           </ul>
 
@@ -109,7 +109,7 @@ function Header(props) {
             </div>
             <div className="btn-holder">
               <Link to="/checkout" className="btn-swipe-black hover-swipe-right btn-checkout">Checkout</Link>
-              <Link to="/product-catalog" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
+              <Link to="/products" className="btn-swipe-black hover-swipe-right">Continue Shopping</Link>
             </div>
           </>
           : ''
