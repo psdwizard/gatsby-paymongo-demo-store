@@ -98,7 +98,7 @@ const API = () => {
       localStorage.setItem('total', JSON.stringify(totalAmount))
     }
   }
-
+  
   return (
     <div className="sass-ready">
       <Helmet>
@@ -160,10 +160,20 @@ const API = () => {
                 <div className="segment-details checkout-form">
                   <form className="form-wrapper" onSubmit={handleSubmit} >
                     <div className="card-no-wrapper">
-                      <input name="number" type="number" className="w-100" min="0" max="9999999999999999" placeholder="Number" onChange={handleData} onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,16)}} />  
+                      <input 
+                        name="number" 
+                        type="number" 
+                        className="w-100" 
+                        placeholder="Number" 
+                        onChange={handleData} 
+                        min="0" 
+                        max="9999999999999999" 
+                        onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,17)}} 
+                        required
+                      />  
                     </div>
                     <div className="card-info-wrapper mt-3">
-                      <select name="expiry" placeholder="Expiry Month" onChange={handleData} >
+                      <select name="expiry" placeholder="Expiry Month" onChange={handleData}  required>
                         <option value="1">January</option>
                         <option value="2">February</option>
                         <option value="3">March</option>
@@ -177,8 +187,26 @@ const API = () => {
                         <option value="11">November</option>
                         <option value="12">December</option>
                       </select>
-                      <input name="year" type="number" onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} placeholder="Expiry Year" min="0" max="9999" onChange={handleData} /> 
-                      <input name="cvc" onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)}} type="number" placeholder="CVC" min="0" max="999" onChange={handleData} /> 
+                      <input
+                        name="year"
+                        type="number" 
+                        placeholder="Expiry Year" 
+                        onChange={handleData}
+                        min="0" 
+                        max="9999" 
+                        onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} 
+                        required 
+                      /> 
+                      <input 
+                        name="cvc" 
+                        type="number" 
+                        placeholder="CVC" 
+                        onChange={handleData}
+                        min="0" 
+                        max="999" 
+                        onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)}} 
+                        required 
+                      /> 
                     </div>
                     <button type="submit" className="w-100 mt-3 btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
                   </form>
