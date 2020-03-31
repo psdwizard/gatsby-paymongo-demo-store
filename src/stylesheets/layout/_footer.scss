@@ -1,5 +1,6 @@
 footer {
   padding: 50px 0;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 
   a {
     @include on-event {
@@ -17,10 +18,10 @@ footer {
     }
   }
 
-  .logo-holder,
-  .links-holder {
-    width: 23%;
-  }
+  // .logo-holder,
+  // .links-holder {
+  //   // width: 23%;
+  // }
 
   .brand-holder {
     width: 230px;

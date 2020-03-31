@@ -15,7 +15,7 @@ const Footer = () => {
                 <img className="brand-icon" src={require('../assets/images/fs-logo.png')} alt="paymongo-logo"/>
               </Link>
               <p>
-                Built with <FontAwesomeIcon icon={faHeart} className="heart-icon" /> by <a href="https://fullstackhq.com/" target="_blank" rel="noopener noreferrer">Fullstack HQ</a>. Powered by Gatsby + Netlify + PayMongo API.
+                Built with 💙 by <a href="https://fullstackhq.com/" target="_blank" rel="noopener noreferrer">Fullstack HQ</a>. Powered by React JS + PayMongo API
               </p>
             </div>
           </div>
