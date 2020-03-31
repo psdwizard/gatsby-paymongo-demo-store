@@ -3,7 +3,7 @@ setID: 1
 path: /product/fshq-hoodie
 date: 2017-11-05
 title: FSHQ - Hoodie
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, ligula non euismod posuere, ligula enim placerat purus, pharetra ultrices metus est in mi. Sed malesuada elementum odio et feugiat. Donec in neque neque. Proin gravida vehicula ultricies. Pellentesque lacinia fermentum faucibus. Aliquam dapibus mauris sed diam viverra, consequat auctor.
+description: Sometimes coding requires working in cold environments. It's often hard to find objects which will help combat that pesky chill. Sure, you could wear fingerless gloves or a sweatervest, but why settle for garments that make you look like you can't afford fingers or sleeves. If only someone would create a body covering with a "hood" type of device to cover your head.
 price: '400.25'
 image1024: https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQ-Hoodie-1024.png
 image150: https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQ-Hoodie-150.png

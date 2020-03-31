@@ -30,10 +30,10 @@ const Footer = () => {
           <div className="links-holder">
             <h2 className="title">INFORMATION</h2>
             <ul className="list-holder">
-              <li className="list-item"><Link to="/#" className="link">About</Link></li>
-              <li className="list-item"><Link to="/#" className="link">Shipping & Returns</Link></li>
-              <li className="list-item"><Link to="/#" className="link">Privacy Policy</Link></li>
-              <li className="list-item"><Link to="/#" className="link">Terms & Conditions</Link></li>
+              <li className="list-item"><Link to="#" className="link">About</Link></li>
+              <li className="list-item"><Link to="#" className="link">Shipping & Returns</Link></li>
+              <li className="list-item"><Link to="#" className="link">Privacy Policy</Link></li>
+              <li className="list-item"><Link to="#" className="link">Terms & Conditions</Link></li>
             </ul>
           </div>
           <div className="links-holder">

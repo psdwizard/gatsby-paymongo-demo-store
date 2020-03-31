@@ -3,7 +3,7 @@ setID: 5
 path: /product/fshq-polo-shirts3
 date: 2017-11-05
 title: FSHQ - Polo Shirts 3
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, ligula non euismod posuere, ligula enim placerat purus, pharetra ultrices metus est in mi. Sed malesuada elementum odio et feugiat. Donec in neque neque. Proin gravida vehicula ultricies. Pellentesque lacinia fermentum faucibus. Aliquam dapibus mauris sed diam viverra, consequat auctor.
+description: Ever have those days where you feel a bit geometric? Can't quite shape yourself up right? Show your different sides with a Fullstack HQ styles.
 price: '400.00'
 image1024: https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQ-PoloShirts3-1024.png
 image150: https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQ-PoloShirts3-150.png

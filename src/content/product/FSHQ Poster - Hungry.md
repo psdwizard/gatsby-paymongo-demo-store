@@ -3,7 +3,7 @@ setID: 13
 path: /product/fshq-poster-hungry
 date: 2017-11-05
 title: FSHQ Poster - Hungry
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices, ligula non euismod posuere, ligula enim placerat purus, pharetra ultrices metus est in mi. Sed malesuada elementum odio et feugiat. Donec in neque neque. Proin gravida vehicula ultricies. Pellentesque lacinia fermentum faucibus. Aliquam dapibus mauris sed diam viverra, consequat auctor.
+description: Museum-Quality Poster. Thick, durable, matte perfection, shouting out your message.
 price: '400.00'
 image1024: https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQPoster-Hungry-1024.png
 image150: https://psdwizard.github.io/fullstackhq-paymongo/assets/FSHQPoster-Hungry-150.png

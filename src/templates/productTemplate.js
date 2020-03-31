@@ -100,14 +100,14 @@ export default function Template({
                   </button>
                 </div>
                 <div className="social-holder">
-                  <Link to="/" className="icon-link twitter">
+                  <Link to="#" className="icon-link twitter">
                     <FontAwesomeIcon icon={faTwitter} className="icon" />
                     <span className="tooltip">Share on twitter</span>
                   </Link>
-                  <Link to="/" className="icon-link facebook">
+                  <Link to="#" className="icon-link facebook">
                     <FontAwesomeIcon icon={faFacebookF} className="icon" />
                   </Link>
-                  <Link to="/" className="icon-link linkedin">
+                  <Link to="#" className="icon-link linkedin">
                     <FontAwesomeIcon icon={faLinkedinIn} className="icon" />
                   </Link>
                 </div>
