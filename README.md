@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://psdwizard.github.io/gatsby-paymongo-demo-store/">
-    <img src="https://psdwizard.github.io/gatsby-paymongo-demo-store/assets/fshq-demo-store.png" alt="Fullstack HQ Demo Store" />
+    <img src="https://psdwizard.github.io/gatsby-paymongo-demo-store/assets/fshq-demo-store.png" alt="FSHQ Gatsby + Paymongo Demo Store" />
   </a>
 </p>
 
