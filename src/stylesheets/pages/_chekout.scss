@@ -1,4 +1,11 @@
 .checkout-page {
+  #field-wrapper {
+    border: 1px solid $black;
+
+    &.is-invalid {
+      border: 1px solid $red;
+    }
+  }
 
   .checkout-container {
     display: flex;
@@ -46,6 +53,7 @@
       border: 2px solid $black;
     }
   }
+  
 
   .details-list {
     padding-inline-start: 45px;

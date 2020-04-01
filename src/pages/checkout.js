@@ -182,7 +182,7 @@ const API = () => {
                           }}
                         />
                     </div>
-                    <button type="submit" className="w-100 mt-3 btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
+                    <button type="submit" className="w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit">PROCEED AND PAY</button>
                   </form>
                 </div>
             </div>
