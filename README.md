@@ -24,11 +24,9 @@ Visa success
 
 
 
-
 Mastercard success
 5123456789012346
 5555555555554444
-
 
 
 
@@ -37,16 +35,13 @@ Visa insufficient
 
 
 
-
 Mastercard insufficient
 5454545454545454
 
 
 
-
 Visa decline
 4917610000000000 
-
 
 
 
