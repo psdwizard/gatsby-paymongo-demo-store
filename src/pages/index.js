@@ -29,21 +29,21 @@ const cardData = [
     title: 'Clothing',
     description: 'We have an assortment of great clothes including hoodies, t-shirts and more.',
     url: '/products',
-    image: require("../images/../assets/images/bootstrap-illustration-12.png"),
+    image: require("../images/../assets/images/clothing.png"),
     imageName: 'mascot image'
   },
   {
     title: 'Accessories',
     description: 'We got the purrfect categories and sets of accessories for you.',
     url: '/products',
-    image: require("../images/../assets/images/bootstrap-illustration-12.png"),
+    image: require("../images/../assets/images/accessories.png"),
     imageName: 'mascot image'
   },
   {
     title: 'Home Decor',
     description: 'Kitty up your home with these awesome cat mugs, posters and more!',
     url: '/products',
-    image: require("../images/../assets/images/bootstrap-illustration-3.png"),
+    image: require("../images/../assets/images/home-decor.png"),
     imageName: 'mascot image'
   }
 ]

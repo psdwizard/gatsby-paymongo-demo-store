@@ -21,20 +21,35 @@ yarn start # or npm start
 Visa success
 4123450131000508
 4242424242424242
-\
+
+
+
+
 Mastercard success
 5123456789012346
 5555555555554444
-\
+
+
+
+
 Visa insufficient
 4444333322221111
-\
+
+
+
+
 Mastercard insufficient
 5454545454545454
-\
+
+
+
+
 Visa decline
 4917610000000000 
-\
+
+
+
+
 Mastercard decline
 5596459277363286
 ```
