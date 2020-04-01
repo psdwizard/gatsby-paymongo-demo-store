@@ -185,7 +185,14 @@ const API = () => {
                       type="submit" 
                       className=
                       { classNames('w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit', { 
-                      'disbled': paymentData.number = " " 
+                      'disabled': 
+                      paymentData.number === "" 
+                      ||
+                      paymentData.expiry === ""
+                      ||
+                      paymentData.cvc === "" 
+                      // ||
+                      // cardNumberInputProps === onError
                       })}
                     >
                       PROCEED AND PAY
