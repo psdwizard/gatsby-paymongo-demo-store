@@ -1,6 +1,6 @@
 ---
 setID: 3
-path: /product/fshq-mug-22
+path: /product/fshq-mug-2
 date: 2017-11-05
 title: FSHQ - MUG 
 description: Now you can coordinate your coffee with your Fullstack HQ contributions. The Contribution Mug is a ceramic mug that can hold 18 ounces (532 mL) of fluid, or yummy ice cream if you prefer to fill mugs with the sweeter things in life. No matter the contents, this mug will contribute some joy to your day. 
