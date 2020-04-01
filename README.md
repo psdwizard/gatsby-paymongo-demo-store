@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Fullstack HQ &mdash; Gatsby + Paymongo Demo Store
+# Gatsby + Paymongo Demo Store
 * [Demo](https://psdwizard.github.io/gatsby-paymongo-demo-store/)
 
 ## Development
