@@ -79,10 +79,20 @@
       justify-content: space-between;
       margin-top: 10px;
 
+      div {
+        width: 100%;
+
+        .field-wrapper {
+          width: 100%;
+
+          border: 1px solid #aba7a7;
+        }
+      }
+
       select,
       input {
         flex: 0 0 30%;
-        padding: 10px;
+        // padding: 10px;
       }
     }
   }
@@ -129,6 +139,10 @@
       font-size: 14px;
       font-weight: 400;
     }
+  }
+
+  label {
+    margin-bottom: 0;
   }
 }
 
