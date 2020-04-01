@@ -70,7 +70,6 @@ const API = () => {
         axios.post("http://localhost:9000/api/payment", paymentData)
         .then(({ data }) => {
           setPaymentResult(data);
-          
           if (data.error === false) {
             window.location.assign("/fullstackhq-paymongo/success-payment")
           } else {
