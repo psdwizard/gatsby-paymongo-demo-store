@@ -8,7 +8,7 @@ import {Helmet} from "react-helmet"
 const swiperData = [
   {
     title: "The Universal Commerce Suite Demo Store",
-    description: "This is a React JS demo store with PayMongo API integration to process payments.",
+    description: "This is a Gatsby demo store with PayMongo API integration to process payments.",
     buttonText: "Shop Now",
     buttonLink: "/products",
     image: require("../images/../assets/images/bootstrap-illustration-3.png"),
@@ -16,7 +16,7 @@ const swiperData = [
   },
   {
     title: "The Universal Commerce Suite Demo Store",
-    description: "This is a React JS demo store with PayMongo API integration to process payments.",
+    description: "This is a Gatsby demo store with PayMongo API integration to process payments.",
     buttonText: "Shop Now",
     buttonLink: "/products",
     image: require("../images/../assets/images/bootstrap-illustration-12.png"),
