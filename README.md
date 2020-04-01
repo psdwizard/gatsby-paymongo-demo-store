@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://psdwizard.github.io/fullstackhq-paymongo/">
-    <img src="https://psdwizard.github.io/fullstackhq-paymongo/assets/fshq-demo-store.png" alt="Fullstack HQ Demo Store" />
+  <a href="https://psdwizard.github.io/gatsby-paymongo-demo-store/">
+    <img src="https://psdwizard.github.io/gatsby-paymongo-demo-store/assets/fshq-demo-store.png" alt="Fullstack HQ Demo Store" />
   </a>
 </p>
 
@@ -11,7 +11,7 @@
 
 ```bash
 git clone https://github.com/psdwizard/gatsby-paymongo-demo-store.git
-cd fullstackhq-paymongo
+cd gatsby-paymongo-demo-store
 yarn # or npm install
 yarn start # or npm start
 ```

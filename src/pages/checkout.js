@@ -71,9 +71,9 @@ const API = () => {
           setPaymentResult(data);
           
           if (data.error === false) {
-            window.location.assign("/fullstackhq-paymongo/success-payment")
+            window.location.assign("/gatsby-paymongo-demo-store/success-payment")
           } else {
-            window.location.assign("/fullstackhq-paymongo/failed-payment")
+            window.location.assign("/gatsby-paymongo-demo-store/failed-payment")
           }
           console.log(data)
         })
