@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react"
 import {Helmet} from "react-helmet"
 import CreditCardInput from 'react-credit-card-input';
 import axios from "axios"
+import classNames from 'classnames';
 
 import Header from "../components/Header"
-import Banner from "../components/Banner"
-import Footer from "../components/Footer"
 
 const API = () => {
   let total = "";
@@ -182,7 +181,15 @@ const API = () => {
                           }}
                         />
                     </div>
-                    <button type="submit" className="w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit">PROCEED AND PAY</button>
+                    <button 
+                      type="submit" 
+                      className=
+                      { classNames('w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit', { 
+                      'disbled': paymentData.number = " " 
+                      })}
+                    >
+                      PROCEED AND PAY
+                  </button>
                   </form>
                 </div>
             </div>
