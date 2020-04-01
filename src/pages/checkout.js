@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
+import {Helmet} from "react-helmet"
+import CreditCardInput from 'react-credit-card-input';
 import axios from "axios"
+
 import Header from "../components/Header"
 import Banner from "../components/Banner"
 import Footer from "../components/Footer"
-import {Helmet} from "react-helmet"
 
 const API = () => {
   let total = "";
@@ -22,10 +24,9 @@ const API = () => {
     line2: "Test line 2",
     postal_code: "3000",
     state: "Bulacan",
-    number: "09254562154",
-    expiry: "12",
-    year: "22",
-    cvc:  "123",
+    number: "",
+    expiry: "",
+    cvc:  "",
     paymentAmount: null,
     decimal: "",
     currency: "PHP",
@@ -44,12 +45,11 @@ const API = () => {
   const handleData = (e) => {
     const name = e.target.name
     const value = e.target.value
+
     setData({
       ...paymentData,
-      [name]: value
+      [name]: value.replace(/\s/g, '')
     })
-    
-    localStorage.setItem('myValueInLocalStorage', JSON.stringify(paymentData));
   }
 
   const handleSubmit = (e) => {
@@ -57,6 +57,7 @@ const API = () => {
     
     if (typeof window !== `undefined`) {
       var res = (localStorage.getItem('total').split('.'))
+      
 
       setData({ 
         ...paymentData,
@@ -66,7 +67,7 @@ const API = () => {
 
       if (paymentData.paymentAmount !== null) { 
         console.log('my payload', paymentData)
-        axios.post("https://paymongo-api.onrender.com/api/payment", paymentData)
+        axios.post("http://localhost:9000/api/payment", paymentData)
         .then(({ data }) => {
           setPaymentResult(data);
           
@@ -159,54 +160,28 @@ const API = () => {
                 </div>
                 <div className="segment-details checkout-form">
                   <form className="form-wrapper" onSubmit={handleSubmit} >
-                    <div className="card-no-wrapper">
-                      <input 
-                        name="number" 
-                        type="number" 
-                        className="w-100" 
-                        placeholder="Number" 
-                        onChange={handleData} 
-                        min="0" 
-                        max="9999999999999999" 
-                        onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,17)}} 
-                        required
-                      />  
-                    </div>
                     <div className="card-info-wrapper mt-3">
-                      <select name="expiry" placeholder="Expiry Month" onChange={handleData}  required>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                      </select>
-                      <input
-                        name="year"
-                        type="number" 
-                        placeholder="Expiry Year" 
-                        onChange={handleData}
-                        min="0" 
-                        max="9999" 
-                        onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,4)}} 
-                        required 
-                      /> 
-                      <input 
-                        name="cvc" 
-                        type="number" 
-                        placeholder="CVC" 
-                        onChange={handleData}
-                        min="0" 
-                        max="999" 
-                        onInput = {(e) =>{e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,3)}} 
-                        required 
-                      /> 
+                        <CreditCardInput
+                          onError={({ inputName, err }) => console.log(`credit card input error: ${err}`)}
+                          cardCVCInputProps={{
+                            name: 'cvc',
+                            onBlur: e => console.log('cvc blur', e),
+                            onChange: handleData,
+                            onError: err => console.log(`cvc error: ${err}`)
+                          }}
+                          cardExpiryInputProps={{
+                            name: 'expiry',
+                            onBlur: e => console.log('expiry blur', e),
+                            onChange: handleData,
+                            onError: err => console.log(`expiry error: ${err}`)
+                          }}
+                          cardNumberInputProps={{
+                            name: 'number',
+                            onBlur: e => console.log('number blur', e),
+                            onChange: handleData,
+                            onError: err => console.log(`number error: ${err}`)
+                          }}
+                        />
                     </div>
                     <button type="submit" className="w-100 mt-3 btn-swipe-black hover-swipe-right">PROCEED AND PAY</button>
                   </form>
