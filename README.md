@@ -12,8 +12,8 @@
 ```bash
 git clone https://github.com/psdwizard/gatsby-paymongo-demo-store.git
 cd gatsby-paymongo-demo-store
-yarn # or npm install
-yarn start # or npm start
+yarn install
+yarn start
 ```
 
 ## Test Card Details
@@ -45,7 +45,6 @@ Mastercard decline
 ```
 
 ## Deployment
-
 ```bash
-yarn # or npm run deploy
+yarn run deploy
 ```
