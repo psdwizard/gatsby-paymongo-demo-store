@@ -43,3 +43,9 @@ Visa decline
 Mastercard decline
 5596459277363286
 ```
+
+## Deployment
+
+```bash
+yarn # or npm run deploy
+```
