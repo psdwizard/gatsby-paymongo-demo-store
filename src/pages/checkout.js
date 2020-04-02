@@ -92,6 +92,16 @@ const API = () => {
     }
   }
 
+
+  // const [isVerified, setIsVerified] = useState(false)
+  // const handleCCVerification = (e) => {
+  //   if ( input === onBlur) {
+  //     setIsVerified(false)
+  //   } else {
+  //     setIsVerified(true)
+  //   }
+  // }
+  
   useEffect(()=> {
     if (typeof window !== `undefined`) {
       var res = (localStorage.getItem('total').split('.'))
