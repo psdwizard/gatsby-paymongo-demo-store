@@ -93,13 +93,15 @@ const API = () => {
   }
 
   useEffect(()=> {
-    var res = (localStorage.getItem('total').split('.'))
-
-    setData({ 
-      ...paymentData,
-      paymentAmount: parseFloat(res[0].substring(1)),
-      decimal: res[1].substring(0, res[1].length-1)
-    })
+    if (typeof window !== `undefined`) {
+      var res = (localStorage.getItem('total').split('.'))
+  
+      setData({ 
+        ...paymentData,
+        paymentAmount: parseFloat(res[0].substring(1)),
+        decimal: res[1].substring(0, res[1].length-1)
+      })
+    }
   },[])
   
   return (
@@ -189,14 +191,8 @@ const API = () => {
                       type="submit" 
                       className=
                       { classNames('w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit', { 
-                      'disabled': 
-                      paymentData.number === "" 
-                      ||
-                      paymentData.expiry === ""
-                      ||
-                      paymentData.cvc === "" 
-                      // ||
-                      // cardNumberInputProps === onError
+                        'disabled': 
+                        paymentData.number === ""  || paymentData.expiry === "" || paymentData.cvc === "" || loading === true
                       })}
                     >
                       { loading ? 'LOADING...' : 'PROCEED AND PAY' }
