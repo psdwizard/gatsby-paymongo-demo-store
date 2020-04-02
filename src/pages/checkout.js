@@ -207,6 +207,7 @@ const API = () => {
           </div>
           <div className="cart-details">
             <p className="cart-detail-title border-bottom-black">CART SUMMARY</p>
+            <span>
             {
               cartItems ? 
                 cartItems.map((item, i) => {
@@ -226,6 +227,9 @@ const API = () => {
                 })
               : ''
             }
+            </span>
+
+
             <div className="cart-prices border-bottom-black d-flex justify-content-between py-2 px-2">
               <p>Subtotal</p>
               <p>Php {totalAmount}</p>

@@ -176,6 +176,8 @@
 
 @include respond-to(xs) {
   .checkout-page {
+    padding-top: 120px;
+    
     .form-wrapper {
       .card-info-wrapper {
         flex-wrap: wrap;
@@ -195,7 +197,7 @@
 
   .sass-ready {
     header .link {
-      font-size: 8px;
+      font-size: 12px;
     }
   }
 }
