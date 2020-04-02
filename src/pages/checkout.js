@@ -92,15 +92,7 @@ const API = () => {
     }
   }
 
-
-  // const [isVerified, setIsVerified] = useState(false)
-  // const handleCCVerification = (e) => {
-  //   if ( input === onBlur) {
-  //     setIsVerified(false)
-  //   } else {
-  //     setIsVerified(true)
-  //   }
-  // }
+  const [hasError, setHasError] = useState(false)
   
   useEffect(()=> {
     if (typeof window !== `undefined`) {
@@ -180,20 +172,22 @@ const API = () => {
                           cardCVCInputProps={{
                             name: 'cvc',
                             onBlur: e => console.log('cvc blur', e),
-                            onChange: handleData,
-                            onError: err => console.log(`cvc error: ${err}`)
+                            onChange: handleData, 
+                            onError: err => setHasError(1) 
                           }}
+
                           cardExpiryInputProps={{
                             name: 'expiry',
                             onBlur: e => console.log('expiry blur', e),
                             onChange: handleData,
-                            onError: err => console.log(`expiry error: ${err}`)
+                            onError: err => setHasError(1)
                           }}
+
                           cardNumberInputProps={{
                             name: 'number',
                             onBlur: e => console.log('number blur', e),
                             onChange: handleData,
-                            onError: err => console.log(`number error: ${err}`)
+                            onError: err => setHasError(1)
                           }}
                         />
                     </div>
@@ -202,7 +196,7 @@ const API = () => {
                       className=
                       { classNames('w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit', { 
                         'disabled': 
-                        paymentData.number === ""  || paymentData.expiry === "" || paymentData.cvc === "" || loading === true
+                        paymentData.number === ""  || paymentData.expiry === "" || paymentData.cvc === "" || loading === true || hasError === 1
                       })}
                     >
                       { loading ? 'LOADING...' : 'PROCEED AND PAY' }
