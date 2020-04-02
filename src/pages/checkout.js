@@ -33,6 +33,8 @@ const API = () => {
     statement_descriptor: "This is only a test"
   })
 
+  const [loading, setLoading] = useState(false);
+
   const [paymentResult, setPaymentResult] = useState({
     error: "",
     data: {
@@ -49,32 +51,25 @@ const API = () => {
       ...paymentData,
       [name]: value.replace(/\s/g, '')
     })
+
+    console.log(paymentData)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     
     if (typeof window !== `undefined`) {
-      var res = (localStorage.getItem('total').split('.'))
-      
-
-      setData({ 
-        ...paymentData,
-        paymentAmount: parseFloat(res[0].substring(1)),
-        decimal: res[1].substring(0, res[1].length-1)
-      })
-
       if (paymentData.paymentAmount !== null) { 
-        console.log('my payload', paymentData)
         axios.post("https://paymongo-api.onrender.com/api/payment", paymentData)
         .then(({ data }) => {
+          setLoading(false);
           setPaymentResult(data);
           if (data.error === false) {
             window.location.assign("/gatsby-paymongo-demo-store/success-payment")
           } else {
             window.location.assign("/gatsby-paymongo-demo-store/failed-payment")
           }
-          console.log(data)
         })
       }
     }    
@@ -93,10 +88,19 @@ const API = () => {
     cartItems = JSON.parse(localStorage.getItem('cartList'))
     if (cartItems !== null) {
       totalAmount = ( sumProperty(cartItems, 'totalPrice') ).toFixed(2); 
-      totalQuantity = sumProperty(cartItems, 'qtty'); 
       localStorage.setItem('total', JSON.stringify(totalAmount))
     }
   }
+
+  useEffect(()=> {
+    var res = (localStorage.getItem('total').split('.'))
+
+    setData({ 
+      ...paymentData,
+      paymentAmount: parseFloat(res[0].substring(1)),
+      decimal: res[1].substring(0, res[1].length-1)
+    })
+  },[])
   
   return (
     <div className="sass-ready">
@@ -195,7 +199,7 @@ const API = () => {
                       // cardNumberInputProps === onError
                       })}
                     >
-                      PROCEED AND PAY
+                      { loading ? 'LOADING...' : 'PROCEED AND PAY' }
                   </button>
                   </form>
                 </div>
