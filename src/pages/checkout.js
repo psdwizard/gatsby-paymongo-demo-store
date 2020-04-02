@@ -97,6 +97,16 @@ const API = () => {
       localStorage.setItem('total', JSON.stringify(totalAmount))
     }
   }
+
+
+  // const [isVerified, setIsVerified] = useState(false)
+  // const handleCCVerification = (e) => {
+  //   if ( input === onBlur) {
+  //     setIsVerified(false)
+  //   } else {
+  //     setIsVerified(true)
+  //   }
+  // }
   
   return (
     <div className="sass-ready">
@@ -192,7 +202,7 @@ const API = () => {
                       ||
                       paymentData.cvc === "" 
                       // ||
-                      // cardNumberInputProps === onError
+                      // isVerified === false
                       })}
                     >
                       PROCEED AND PAY
