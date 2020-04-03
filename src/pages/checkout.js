@@ -7,12 +7,8 @@ import classNames from 'classnames';
 import Header from "../components/Header"
 
 const API = () => {
-  let total = "";
-  let paymentAmount = "";
-  let decimal = "";
   let cartItems = []
   let totalAmount = 0;
-  let totalQuantity = 0;
 
   const [paymentData, setData] = useState({
     name: "Marianne",
@@ -91,8 +87,6 @@ const API = () => {
       localStorage.setItem('total', JSON.stringify(totalAmount))
     }
   }
-
-  const [hasError, setHasError] = useState(false)
   
   useEffect(()=> {
     if (typeof window !== `undefined`) {
@@ -173,21 +167,18 @@ const API = () => {
                             name: 'cvc',
                             onBlur: e => console.log('cvc blur', e),
                             onChange: handleData, 
-                            onError: err => setHasError(1) 
                           }}
 
                           cardExpiryInputProps={{
                             name: 'expiry',
                             onBlur: e => console.log('expiry blur', e),
                             onChange: handleData,
-                            onError: err => setHasError(1)
                           }}
 
                           cardNumberInputProps={{
                             name: 'number',
                             onBlur: e => console.log('number blur', e),
                             onChange: handleData,
-                            onError: err => setHasError(1)
                           }}
                         />
                     </div>
@@ -196,7 +187,7 @@ const API = () => {
                       className=
                       { classNames('w-100 mt-3 btn-swipe-black hover-swipe-right btn-submit', { 
                         'disabled': 
-                        paymentData.number === ""  || paymentData.expiry === "" || paymentData.cvc === "" || loading === true || hasError === 1
+                        paymentData.number === ""  || paymentData.expiry === "" || paymentData.cvc === "" || loading === true 
                       })}
                     >
                       { loading ? 'LOADING...' : 'PROCEED AND PAY' }
@@ -207,7 +198,6 @@ const API = () => {
           </div>
           <div className="cart-details">
             <p className="cart-detail-title border-bottom-black">CART SUMMARY</p>
-            <span>
             {
               cartItems ? 
                 cartItems.map((item, i) => {
@@ -227,9 +217,6 @@ const API = () => {
                 })
               : ''
             }
-            </span>
-
-
             <div className="cart-prices border-bottom-black d-flex justify-content-between py-2 px-2">
               <p>Subtotal</p>
               <p>Php {totalAmount}</p>
