@@ -47,8 +47,6 @@ const API = () => {
       ...paymentData,
       [name]: value.replace(/\s/g, '')
     })
-
-    console.log(paymentData)
   }
 
   const handleSubmit = (e) => {
@@ -57,7 +55,7 @@ const API = () => {
     
     if (typeof window !== `undefined`) {
       if (paymentData.paymentAmount !== null) { 
-        axios.post("https://paymongo-api.onrender.com/api/payment", paymentData)
+        axios.post("https://paymongo-api-v2.onrender.com/api/payment", paymentData)
         .then(({ data }) => {
           setLoading(false);
           setPaymentResult(data);
@@ -162,22 +160,18 @@ const API = () => {
                   <form className="form-wrapper" onSubmit={handleSubmit} >
                     <div className="card-info-wrapper mt-3">
                         <CreditCardInput
-                          onError={({ inputName, err }) => console.log(`credit card input error: ${err}`)}
                           cardCVCInputProps={{
                             name: 'cvc',
-                            onBlur: e => console.log('cvc blur', e),
                             onChange: handleData, 
                           }}
 
                           cardExpiryInputProps={{
                             name: 'expiry',
-                            onBlur: e => console.log('expiry blur', e),
                             onChange: handleData,
                           }}
 
                           cardNumberInputProps={{
                             name: 'number',
-                            onBlur: e => console.log('number blur', e),
                             onChange: handleData,
                           }}
                         />

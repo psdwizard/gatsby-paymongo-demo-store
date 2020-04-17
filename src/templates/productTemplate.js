@@ -88,7 +88,7 @@ export default function Template({
 
   useEffect(() => {
     if ( cartList.productName === "" || cartList.cartPressed === false ) {
-      console.log('blank state')
+      console.log('')
     } else {
       var allEntries = JSON.parse(localStorage.getItem('cartList')) || [];
       const x = (allEntries.findIndex(x => x.setID === cartList.setID))
