@@ -5,15 +5,15 @@ import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 
 const successPayment = () => {
-  // const [, updateState] = React.useState()
-  // const forceUpdate = useCallback(() => updateState({}), [])
+  const [, updateState] = React.useState()
+  const forceUpdate = useCallback(() => updateState({}), [])
 
-  // useEffect(() => {
-  //   if (typeof window !== `undefined`) {
-  //     localStorage.clear()
-  //     forceUpdate()
-  //   }
-  // })
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      localStorage.clear()
+      forceUpdate()
+    }
+  })
 
   return (
     <div>
