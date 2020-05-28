@@ -6,7 +6,7 @@ import classNames from "classnames"
 
 import Header from "../components/Header"
 
-const API = () => {
+const API = ({ location }) => {
   let cartItems = []
   let totalAmount = 0
 
@@ -30,6 +30,8 @@ const API = () => {
   })
 
   const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [iframeLink, setIframeLink] = useState('')
 
   const [paymentResult, setPaymentResult] = useState({
     error: "",
@@ -49,84 +51,99 @@ const API = () => {
     })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
 
     if (typeof window !== `undefined`) {
       if (paymentData.paymentAmount !== null) {
-        // axios.post("https://paymongo-api-v2.onrender.com/api/payment", paymentData)
-        // .then(({ data }) => {
-        //   setLoading(false);
-        //   setPaymentResult(data);
-        //   if (data.error === false) {
-        //     window.location.assign("/gatsby-paymongo-demo-store/success-payment")
-        //   } else {
-        //     window.location.assign("/gatsby-paymongo-demo-store/failed-payment")
-        //   }
-        // })
-        var auth = btoa("sk_test_F7QK6Qjb827V8jtFYyNqrioA")
+        const auth = btoa("pk_test_VaLAzFeMceujLM6bzzrJSUUQ")
 
-        var cardNumber = paymentData.number
-        var expiry = paymentData.expiry
-        var expiryArray = expiry.split("/")
-        var expMonth = parseInt(expiryArray[0])
-        var expYear = parseInt(expiryArray[1])
-        var cvc = paymentData.cvc
-        //execute payment method attach to payment intent trhough backend
-        axios
-          .post(
-            "https://api.paymongo.com/v1/payment_methods",
-            {
-              data: {
-                attributes: {
-                  type: "card", // The only available type for now is 'card'.
-                  details: {
-                    card_number: cardNumber,
-                    exp_month: expMonth,
-                    exp_year: expYear,
-                    cvc: cvc,
-                  },
+        const {
+          name,
+          email,
+          phone,
+          line1,
+          line2,
+          postal_code,
+          city,
+          state,
+          country,
+          paymentAmount: amount,
+          decimal,
+          number: card_number,
+          expiry,
+          cvc,
+          description,
+          statement_descriptor
+        } = paymentData
+
+        const [expMonth, expYear] = expiry.split('/')
+
+        // Create PaymentMethod through PayMongo
+        const { data: paymentMethod } = await axios.post(
+          'https://api.paymongo.com/v1/payment_methods',
+          {
+            data: {
+              attributes: {
+                type: "card",
+                details: {
+                  card_number,
+                  exp_month: parseInt(expMonth),
+                  exp_year: parseInt(expYear),
+                  cvc: cvc,
                 },
               },
             },
-            {
-              headers: {
-                "content-type": "application/json",
-                // Base64 encoded public PayMongo API key.
-                authorization: "Basic " + auth,
-              },
-            }
-          )
-          .then(function(response) {
-            var pmID = response.data.data.id
-            // console.log(response.data.data)
-            // request for payment intent attachment
-            var bodyRequest = {
-              pmID,
-              amount: paymentData.paymentAmount,
-              decimal: paymentData.decimal,
-            }
-            axios
-              .post("http://localhost:9000/api/payment", bodyRequest)
-              .then(function(res) {
-                console.log(res)
-                var data = res.data.data
+          },
+          {
+            headers: {
+              "content-type": "application/json",
+              authorization: "Basic " + auth,
+            },
+          }
+        )
 
-                if (data.status == "success") {
-                  window.location.assign(
-                    // "/gatsby-paymongo-demo-store/success-payment"
-                    "/success-payment"
-                  )
-                } else {
-                  window.location.assign(
-                    // "/gatsby-paymongo-demo-store/failed-payment"
-                    "/failed-payment"
-                  )
-                }
-                console.log(res)
-              })
-          })
+        // Create PaymentIntent through Backend
+        const { data: paymentIntent } = await axios.post(
+          'http://localhost:9000/api/payment',
+          { amount, decimal }
+        )
+
+        const { id: payment_method } = paymentMethod.data
+        const { 
+          id: payment_intent,
+          attributes: { client_key }
+        } = paymentIntent
+
+        const return_url = location.origin + '/checkout'
+
+        // Attach PaymentMethod through Backend
+        const { data: paymentAttach } = await axios.post(
+          'http://localhost:9000/api/payment/' + payment_intent + '/attach',
+          { 
+            payment_method,
+            client_key: client_key.split('_client')[0], 
+            return_url 
+          }
+        )
+
+        const {
+          id,
+          attributes: {
+            next_action
+          }
+        } = paymentAttach
+
+        setIframeLink(next_action.redirect.url)
+        setShowModal(true)
+        // if (paymentRes.data.status === 'awaiting_next_action'){
+        //   console.log('Show Modal')
+        // } else if (paymentRes.data.status === 'success') {
+        //   console.log('Message Success')
+        // } else {
+        //   console.log('Error')
+        // }
       }
     }
   }
@@ -148,6 +165,13 @@ const API = () => {
     }
   }
 
+  const handlePostMessage = async (event) => {
+    if (event.data === '3DS-authentication-complete') {
+      console.log('3DS Complete')
+      setShowModal(false)
+    }
+  }
+
   useEffect(() => {
     if (typeof window !== `undefined`) {
       var res = localStorage.getItem("total").split(".")
@@ -157,7 +181,11 @@ const API = () => {
         paymentAmount: parseFloat(res[0].substring(1)),
         decimal: res[1].substring(0, res[1].length - 1),
       })
+
     }
+    document.addEventListener("message", handlePostMessage, false)
+
+    return () => document.removeEventListener("message", handlePostMessage)
   }, [])
 
   return (
@@ -303,6 +331,10 @@ const API = () => {
           </div>
         </div>
       </main>
+      <div className={classNames('modal-3ds', { 'show': showModal })}>
+        <iframe src={iframeLink} frameBorder="0"></iframe>
+      </div>
+      { showModal && <div className="modal-3ds-overlay"></div> }
     </div>
   )
 }
