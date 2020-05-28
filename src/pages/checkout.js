@@ -183,9 +183,9 @@ const API = ({ location }) => {
       })
 
     }
-    document.addEventListener("message", handlePostMessage, false)
+    window.addEventListener("message", handlePostMessage, false)
 
-    return () => document.removeEventListener("message", handlePostMessage)
+    return () => window.removeEventListener("message", handlePostMessage)
   }, [])
 
   return (
