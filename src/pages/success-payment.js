@@ -4,7 +4,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Helmet } from "react-helmet"
 
-const successPayment = () => {
+const SuccessPayment = () => {
   // const [, updateState] = React.useState()
   // const forceUpdate = useCallback(() => updateState({}), [])
 
@@ -43,4 +43,4 @@ const successPayment = () => {
   )
 }
 
-export default successPayment
+export default SuccessPayment

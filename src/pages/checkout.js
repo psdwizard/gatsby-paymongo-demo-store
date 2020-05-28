@@ -6,7 +6,7 @@ import classNames from "classnames"
 
 import Header from "../components/Header"
 
-const API = () => {
+const API = ({ location }) => {
   let cartItems = []
   let totalAmount = 0
 
@@ -30,6 +30,8 @@ const API = () => {
   })
 
   const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [iframeLink, setIframeLink] = useState("")
 
   const [paymentResult, setPaymentResult] = useState({
     error: "",
@@ -49,22 +51,12 @@ const API = () => {
     })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
     setLoading(true)
 
     if (typeof window !== `undefined`) {
       if (paymentData.paymentAmount !== null) {
-        // axios.post("https://paymongo-api-v2.onrender.com/api/payment", paymentData)
-        // .then(({ data }) => {
-        //   setLoading(false);
-        //   setPaymentResult(data);
-        //   if (data.error === false) {
-        //     window.location.assign("/gatsby-paymongo-demo-store/success-payment")
-        //   } else {
-        //     window.location.assign("/gatsby-paymongo-demo-store/failed-payment")
-        //   }
-        // })
         var auth = btoa("sk_test_F7QK6Qjb827V8jtFYyNqrioA")
 
         var cardNumber = paymentData.number
@@ -118,13 +110,68 @@ const API = () => {
                     // "/gatsby-paymongo-demo-store/success-payment"
                     "/success-payment"
                   )
-                } else {
+                } else if (data.status == "warning") {
+                  setIframeLink(
+                    data.payment_intent_attach_data.attributes.next_action
+                      .redirect.url
+                  )
+                  setShowModal(true)
+
+                  window.addEventListener(
+                    "message",
+                    ev => {
+                      if (ev.data === "3DS-authentication-complete") {
+                        // 3D Secure authentication is complete. You can requery the payment intent again to check the status.
+
+                        // PaymentIntent client_key example
+                        var paymentIntentId = data.payment_intent_data.id
+                        var clientKey =
+                          data.payment_intent_data.attributes.client_key
+
+                        axios
+                          .get(
+                            "https://api.paymongo.com/v1/payment_intents/" +
+                              paymentIntentId +
+                              "?client_key=" +
+                              clientKey,
+                            {
+                              headers: {
+                                // Base64 encoded public PayMongo API key.
+                                Authorization: `Basic ${auth}`,
+                              },
+                            }
+                          )
+                          .then(function(response) {
+                            var paymentIntent = response.data.data
+                            var paymentIntentStatus =
+                              paymentIntent.attributes.status
+
+                            if (paymentIntentStatus === "succeeded") {
+                              // You already received your customer's payment. You can show a success message from this condition.
+                              window.location.assign(
+                                // "/gatsby-paymongo-demo-store/success-payment"
+                                "/success-payment"
+                              )
+                            } else if (
+                              paymentIntentStatus === "awaiting_payment_method"
+                            ) {
+                              // The PaymentIntent encountered a processing error. You can refer to paymentIntent.attributes.last_payment_error to check the error and render the appropriate error message.
+                              window.location.assign(
+                                // "/gatsby-paymongo-demo-store/failed-payment"
+                                "/failed-payment"
+                              )
+                            }
+                          })
+                      }
+                    },
+                    false
+                  )
+                } else if (data.status == "error") {
                   window.location.assign(
                     // "/gatsby-paymongo-demo-store/failed-payment"
                     "/failed-payment"
                   )
                 }
-                console.log(res)
               })
           })
       }
@@ -148,6 +195,13 @@ const API = () => {
     }
   }
 
+  const handlePostMessage = async event => {
+    if (event.data === "3DS-authentication-complete") {
+      console.log("3DS Complete")
+      setShowModal(false)
+    }
+  }
+
   useEffect(() => {
     if (typeof window !== `undefined`) {
       var res = localStorage.getItem("total").split(".")
@@ -158,6 +212,9 @@ const API = () => {
         decimal: res[1].substring(0, res[1].length - 1),
       })
     }
+    window.addEventListener("message", handlePostMessage, false)
+
+    return () => window.removeEventListener("message", handlePostMessage)
   }, [])
 
   return (
@@ -303,6 +360,10 @@ const API = () => {
           </div>
         </div>
       </main>
+      <div className={classNames("modal-3ds", { show: showModal })}>
+        <iframe src={iframeLink} frameBorder="0"></iframe>
+      </div>
+      {showModal && <div className="modal-3ds-overlay"></div>}
     </div>
   )
 }
