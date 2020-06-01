@@ -11,7 +11,7 @@ const SuccessPayment = () => {
   // useEffect(() => {
   //   if (typeof window !== `undefined`) {
   //     localStorage.clear()
-  //     forceUpdate()
+  //     // forceUpdate()
   //   }
   // })
 

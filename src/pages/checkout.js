@@ -110,6 +110,7 @@ const API = ({ location }) => {
                     // "/gatsby-paymongo-demo-store/success-payment"
                     "/success-payment"
                   )
+                  localStorage.clear()
                 } else if (data.status == "warning") {
                   setIframeLink(
                     data.payment_intent_attach_data.attributes.next_action
@@ -152,6 +153,7 @@ const API = ({ location }) => {
                                 // "/gatsby-paymongo-demo-store/success-payment"
                                 "/success-payment"
                               )
+                              localStorage.clear()
                             } else if (
                               paymentIntentStatus === "awaiting_payment_method"
                             ) {
