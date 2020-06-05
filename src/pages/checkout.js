@@ -66,6 +66,7 @@ const API = ({ location }) => {
         var expYear = parseInt(expiryArray[1])
         var cvc = paymentData.cvc
         //execute payment method attach to payment intent trhough backend
+
         axios
           .post(
             "https://api.paymongo.com/v1/payment_methods",
@@ -92,7 +93,6 @@ const API = ({ location }) => {
           )
           .then(function(response) {
             var pmID = response.data.data.id
-            // console.log(response.data.data)
             // request for payment intent attachment
             var bodyRequest = {
               pmID,
@@ -173,6 +173,15 @@ const API = ({ location }) => {
                     // "/gatsby-paymongo-demo-store/failed-payment"
                     "/failed-payment"
                   )
+                }
+              })
+              .catch(function(err) {
+                console.log(err.errors)
+                if (!err.status) {
+                  console.log("Yes")
+                  // "assignment to constant" will be considered as network error
+                } else {
+                  console.log("No")
                 }
               })
           })
