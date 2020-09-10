@@ -55,7 +55,7 @@ const API = () => {
     
     if (typeof window !== `undefined`) {
       if (paymentData.paymentAmount !== null) { 
-        axios.post("https://paymongo-api-v2.onrender.com/api/payment", paymentData)
+        axios.post("https://paymongo-api-jasy.onrender.com/api/payment", paymentData)
         .then(({ data }) => {
           setLoading(false);
           setPaymentResult(data);
