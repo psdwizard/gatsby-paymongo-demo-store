@@ -191,7 +191,7 @@ export default function Template({
                   <div className="image-holder">
                     <Link to="/product/fshq-poster-happy">
                       <div className="thumbnail">
-                        <img src="https://psdwizard.github.io/gatsby-paymongo-demo-store/assets/FSHQPoster-Happy-300.png" className="image-thumbnail" alt=" FSHQ Poster - Happy" />
+                        <img src="https://fullstackph.github.io/gatsby-paymongo-demo-store/assets/FSHQPoster-Happy-300.png" className="image-thumbnail" alt=" FSHQ Poster - Happy" />
                       </div>
                       <Link to="/product/fshq-poster-happy" className="btn-swipe-black hover-swipe-right">View Details</Link>
                     </Link>
@@ -206,7 +206,7 @@ export default function Template({
                   <div className="image-holder">
                     <Link to="/product/fshq-poster-honest">
                       <div className="thumbnail">
-                        <img src="https://psdwizard.github.io/gatsby-paymongo-demo-store/assets/FSHQPoster-Honest-300.png" className="image-thumbnail" alt=" FSHQ Poster - Honestl" />
+                        <img src="https://fullstackph.github.io/gatsby-paymongo-demo-store/assets/FSHQPoster-Honest-300.png" className="image-thumbnail" alt=" FSHQ Poster - Honestl" />
                       </div>
                       <Link to="/product/fshq-poster-honest" className="btn-swipe-black hover-swipe-right">View Details</Link>
                     </Link>
@@ -221,7 +221,7 @@ export default function Template({
                   <div className="image-holder">
                     <Link to="/product/fshq-poster-hungry">
                       <div className="thumbnail">
-                        <img src="https://psdwizard.github.io/gatsby-paymongo-demo-store/assets/FSHQPoster-Hungry-300.png" className="image-thumbnail" alt=" FSHQ Poster - Helpful" />
+                        <img src="https://fullstackph.github.io/gatsby-paymongo-demo-store/assets/FSHQPoster-Hungry-300.png" className="image-thumbnail" alt=" FSHQ Poster - Helpful" />
                       </div>
                       <Link to="/product/fshq-poster-hungry" className="btn-swipe-black hover-swipe-right">View Details</Link>
                     </Link>
