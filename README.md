@@ -19,11 +19,11 @@ yarn start
 ## Test Card Details
 ```bash
 Visa success
-4123450131000508
+4343434343434345
 
 
 Mastercard success
-5123456789012346
+5555444444444457
 
 
 Visa insufficient
