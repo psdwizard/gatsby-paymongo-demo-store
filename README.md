@@ -18,9 +18,10 @@ yarn start
 ```
 
 ## Test Card Details
-```bash
 
 Test card numbers: [https://developers.paymongo.com/docs/testing](https://developers.paymongo.com/docs/testing)
+
+```bash
 
 Visa success
 4343434343434345
