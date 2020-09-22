@@ -23,7 +23,7 @@ yarn start
 Test card numbers: https://developers.paymongo.com/docs/testing
 
 Visa success
-4571736000000075
+4343434343434345
 
 
 Mastercard success
