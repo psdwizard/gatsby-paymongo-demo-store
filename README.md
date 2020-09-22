@@ -18,8 +18,11 @@ yarn start
 
 ## Test Card Details
 ```bash
+
+Basic test card numbers https://developers.paymongo.com/docs/testing
+
 Visa success
-4343434343434345
+4571736000000075
 
 
 Mastercard success
