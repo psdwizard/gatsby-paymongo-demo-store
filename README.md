@@ -5,7 +5,7 @@
 </p>
 
 # Gatsby + Paymongo Demo Store
-* [Demo](https://fullstackph.github.io/gatsby-paymongo-demo-store/)
+* DEMO: [https://fullstackph.github.io/gatsby-paymongo-demo-store/](https://fullstackph.github.io/gatsby-paymongo-demo-store/)
 
 ## Development
 
