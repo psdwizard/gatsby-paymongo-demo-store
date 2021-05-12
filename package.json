@@ -40,7 +40,7 @@
     "react-tabs": "^3.1.0",
     "reactstrap": "^8.4.1",
     "styled-components": "^5.0.1",
-    "swiper": "^5.3.6"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
